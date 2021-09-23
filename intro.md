@@ -12,8 +12,8 @@ control theory will be given, with emphasis on stability and feedback.
 
 ### Chapter 1 Introduction
    - Real-world examples of linear systems
-   - Revision on differential and difference equations  
-   - Revision on Laplace and z-transorms
+   - Differential and difference equations revision 
+   - Laplace and z-transforms revision
 
 ### Chapter 2 Similarity transformations and the Jordan canonical form
    - Similarity transformations and diagonalisation
