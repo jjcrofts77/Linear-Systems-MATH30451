@@ -13,6 +13,11 @@ chapters:
   - file: content/notebooks/Chapter2/JNF
   - file: content/notebooks/Chapter2/JNF3by3    
 - file: content/notebooks/Chapter3/Chapter3Intro
+  sections:
+  - file: content/notebooks/Chapter3/HomoODE
+  - file: content/notebooks/Chapter3/HomoDiff
+  - file: content/notebooks/Chapter3/NonHomoODE    
+  - file: content/notebooks/Chapter3/NonHomoDiff    
 - file: content/notebooks/Chapter4/Chapter4Intro
   sections:
   - file: content/notebooks/Chapter4/Controllability
