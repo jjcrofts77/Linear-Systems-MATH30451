@@ -8,11 +8,10 @@ chapters:
   - file: content/notebooks/Chapter1/DiffEqnRev
   - file: content/notebooks/Chapter1/TransformRev
 - file: content/notebooks/Chapter2/Chapter2Intro
-  - file: content/notebooks/Chapter2/SimTrans
-  - file: content/notebooks/Chapter2/JNF
-  - file: content/notebooks/Chapter2/JNF3by3
   sections:
   - file: content/notebooks/Chapter2/SimTrans
+  - file: content/notebooks/Chapter2/JNF
+  - file: content/notebooks/Chapter2/JNF3by3    
 - file: content/notebooks/Chapter3/Chapter3Intro
 - file: content/notebooks/Chapter4/Chapter4Intro
   sections:
@@ -20,4 +19,3 @@ chapters:
   - file: content/notebooks/Chapter4/Observability
   - file: content/notebooks/Chapter4/Stability
   - file: content/notebooks/Chapter4/BIBO
-- file: content/notebooks/Chapter5/Chapter5Intro
