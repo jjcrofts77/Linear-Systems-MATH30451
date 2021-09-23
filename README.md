@@ -23,7 +23,7 @@ This Jupyterbook provides the course notes for the third year module Linear Syst
    - Controllability
    - Observability
    - Stability
-   - BIBO stability
+   - BIBO stability and feedback
 
 ### Chapter 5 System and transfer functions
 
