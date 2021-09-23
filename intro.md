@@ -32,6 +32,8 @@ control theory will be given, with emphasis on stability and feedback.
 
 ### Chapter 5 System and transfer functions
 
+<br>
+
 ## References
 [1] Lay, D. C. Linear algebra and its applications (2003)
 
