@@ -2,9 +2,11 @@ format: jb-book
 root: intro
 title: Introduction
 chapters:
-- file: content/notebooks/Chapter1/Chapter1Intro  
+- file: content/notebooks/Chapter1/Chapter1Intro
   sections:
   - file: content/notebooks/Chapter1/Examples
+  - file: content/notebooks/Chapter1/DiffEqnRev
+  - file: content/notebooks/Chapter1/TransformRev
 - file: content/notebooks/Chapter2/Chapter2Intro
   sections:
   - file: content/notebooks/Chapter2/SimTrans
