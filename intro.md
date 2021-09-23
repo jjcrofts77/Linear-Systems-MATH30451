@@ -14,9 +14,9 @@ This Jupyterbook provides the course notes for the third year module Linear Syst
    - JNF: The case of the $3 \times 3$ matrix
 
 ### Chapter 3 Linear systems of first order differential and difference equations
-   - Homogeneous systems of equations
-   -- hi  
+   - Homogeneous systems of equations     
    - Inhomogeneous systems of equations
+      -- hi
 
 ### Chapter 4 Controllability , observability and stability
    - Controllability
