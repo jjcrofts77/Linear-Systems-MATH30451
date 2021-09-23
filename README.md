@@ -21,8 +21,7 @@ This Jupyterbook provides the course notes for the third year module Linear Syst
       - Linear systems of difference equations
    - Inhomogeneous systems of equations
       - Linear systems of ODEs
-      - Linear systems of difference equations
-   - Inhomogeneous systems of equations
+      - Linear systems of difference equations   
 
 ### Chapter 4 Controllability , observability and stability
    - Controllability
