@@ -11,7 +11,8 @@ chapters:
   sections:
   - file: content/notebooks/Chapter2/SimTrans
   - file: content/notebooks/Chapter2/JNF
-  - file: content/notebooks/Chapter2/JNF3by3    
+  - file: content/notebooks/Chapter2/JNF3by3   
+  - file: content/notebooks/Chapter2/PowersJB   
 - file: content/notebooks/Chapter3/Chapter3Intro
   sections:
   - file: content/notebooks/Chapter3/HomoODE
