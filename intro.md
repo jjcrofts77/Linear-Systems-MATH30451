@@ -12,6 +12,7 @@ This Jupyterbook provides the course notes for the third year module Linear Syst
    - Similarity transformations and diagonalisation
    - Jordan nomal form
    - JNF: The case of the $3 \times 3$ matrix
+   - Powers of a Jordon block
 
 ### Chapter 3 Linear systems of first order differential and difference equations
    - Homogeneous systems of ODEs
