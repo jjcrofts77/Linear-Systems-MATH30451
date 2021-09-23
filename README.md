@@ -1,97 +1,60 @@
 <!-- #region -->
-# Advanced Calculus MATH20471
+# Linear Systems MATH30451
 
 # Course Overview
 
-This Jupyterbook provides the course notes for Advanced Calculus.
+This Jupyterbook provides the course notes for the third year module Linear Systems (MATH30451).
 
-If you have trouble viewing the jupyter files copy and paste into the nbviewer website.
+# Course description
 
-## Part I - PDEs and Fourier Series
+These lecture notes are designed to accompany the third year course Linear Systems. This course will provide 
+standard results and techniques fro solving systems of linear autonomous differential and difference equations, 
+including Laplace transform and matrix methods. Based on this material an introduction to the ideas of mathematical 
+control theory will be given, with emphasis on stability and feedback.
 
 ### Chapter 1 Introduction
-   - Initial and boundary value problems (IBVP)
-   - Introduction to partial differential equations (PDEs)  
-   - The equations we shall study
+   - Real-world examples of linear systems
+   - Differential and difference equations revision 
+   - Laplace and z-transforms revision
 
-### Chapter 2 Fourier Series
-   - Periodic, even and odd functions
-   - Fourier series for functions of period $2\pi$
-   - Convergence of Fourier series
-   - Functions of any period
+### Chapter 2 Similarity transformations and the Jordan canonical form
+   - Similarity transformations and diagonalisation
+   - Jordan nomal form
+   - JNF: The case of the $3 \times 3$ matrix
 
-### Chapter 3 The heat equation
-   - Derivation in one space dimension
-   - Heat conduction in a finite rod
-   - Initial and boundary value problem
-   - Uniquness (optional)
-   - Non-zero steady state (optional)
+### Chapter 3 Linear systems of first order differential and difference equations
+   - Homogeneous systems of equations
+   - Inhomogeneous systems of equations
 
-### Chapter 4 The wave equation
-   - Derivation in 1 space dimension
-   - Normal modes of vibration for a finite string
-   - Initial and boundary value problems for finite strings
-   - Uniqueness of an IBVP for a finite string (optional)
-   - The general solution of the wave equation
-   - Waves on infinite strings: D'Alembert's formula
+### Chapter 4 Controllability , observability and stability
+   - Controllability
+   - Observability
+   - Stability
+   - BIBO stability
 
-### Chapter 5 Laplace's equation in the plane
-   - BVP in cartesian coordinates
-   - BVP in polar coordinates (optional)
-   - Uniqueness (optional)
+### Chapter 5 System and transfer functions
 
-## Part II Complex Analysis
-
-### Chapter 1 Prerequisites
-   - Revision of complex numbers
-   - Complex valued functions
-
-### Chapter 2 Differentiation
-   - Concsequences/uses of the Cauchy-Riemann equations
-
-### Chapter 3 Singularities
-   - Poles
-   - Removable singularities
-   - essenital singularities
-   - singularities at infinity (optional)
-
-### Chapter 4 Integration
-   - Preliminary definitions
-   - The fundamental theorem of contour integration
-   - Cauchy's integral theorems
-   - The annulus (or deformation) theorem 
-
-### Chapter 5 Taylor and Laurent series 
-   - Taylor series for complex valued functions
-   - Laurent series
-
-
-### Chapter 6 Residues in complex variable analysis
-   - Cauchy's residue theorem
-   - Calculating residues
-   - Evaluation of real integrals
+<br>
 
 ## References
-[1] Jordan D.W., Smith P. Mathematical techniques: an introduction for the engineering, physical, and mathematical sciences (2008)
+[1] Lay, D. C. Linear algebra and its applications (2003)
 
-[2] Nagle, R. K., Saff E. B., Snider A. D. Fundamentals of differential equations and boundary value problems (2017)
+[2] Kolman *et al.* Introductory linear algebra with applications (1997)
 
-[3] Kwok Y. K. Applied complex variables for scientists and engineers 
+[3] Jonhnson *et al.* Introduction to linear algebra (1998)
+
+[4] Goode, S. W. Differential equations and linear algebra (2000) 
 
 
 ------
-## Popular Videos
+## Supplementary Video Lectures
+3Blue1Brown: Linear Algebra. https://www.3blue1brown.com/topics/linear-algebra
+
+3Blue1Brown: Differential Equations. https://www.3blue1brown.com/lessons/differential-equations
 
 ------
 ## Popular Press Reading
+Strogatz, S., 2019. Infinite powers: How calculus reveals the secrets of the universe. Houghton Mifflin Harcourt.
 
-------
-## Podcasts
 
 <!-- #endregion -->
-
-```python
-
-```
-
-
