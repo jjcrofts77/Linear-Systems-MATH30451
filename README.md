@@ -20,6 +20,7 @@ This Jupyterbook provides the course notes for the third year module Linear Syst
    - Homogeneous systems of difference equations     
    - Inhomogeneous systems of ODEs
    - Inhomogeneous systems of difference equations  
+   - Powers of a Jordon block
 
 ### Chapter 4 Controllability , observability and stability
    - Controllability and observability
