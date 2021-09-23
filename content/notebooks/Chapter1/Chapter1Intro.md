@@ -1,4 +1,5 @@
 # Chapter 1 Introduction
 
-The aim of this course is to study systems of linear differential or difference equations, 
-such as arise in the analysis of many situations in the sciences.
+This course will provide standard results and techniques fro solving systems of linear autonomous differential and 
+difference equations, including Laplace transform and matrix methods. Based on this material an introduction to the 
+ideas of mathematical control theory will be given, with emphasis on stability and feedback.
