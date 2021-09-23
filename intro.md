@@ -3,13 +3,6 @@
 
 This Jupyterbook provides the course notes for the third year module Linear Systems (MATH30451).
 
-# Course description
-
-These lecture notes are designed to accompany the third year course Linear Systems. This course will provide 
-standard results and techniques fro solving systems of linear autonomous differential and difference equations, 
-including Laplace transform and matrix methods. Based on this material an introduction to the ideas of mathematical 
-control theory will be given, with emphasis on stability and feedback.
-
 ### Chapter 1 Introduction
    - Real-world examples of linear systems
    - Differential and difference equations revision 
