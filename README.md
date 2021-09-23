@@ -22,9 +22,8 @@ This Jupyterbook provides the course notes for the third year module Linear Syst
    - Inhomogeneous systems of difference equations  
 
 ### Chapter 4 Controllability , observability and stability
-   - Controllability
-   - Observability
-   - Stability
+   - Controllability and observability
+   - Linear stability
    - BIBO stability and feedback
 
 ### Chapter 5 System and transfer functions
