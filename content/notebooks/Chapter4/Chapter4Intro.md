@@ -12,7 +12,7 @@ $$
 \mathbf{x}(t) = e^{At}\mathbf{x}_0+\int_0^te^{A(t-\tau)}\mathbf{f}(\tau)\mathrm{d}\tau.
 $$
 
-Suppose that we now rewrite the ``forcing effect'' in a form that shows explicitly how many ``control functions'' can be used to try to influence the behaviour of the system,
+Suppose that we now rewrite the *forcing effect* in a form that shows explicitly how many *control functions* can be used to try to influence the behaviour of the system,
 
 $$
  \text{i.e., } \mathbf{f}(t) = B\mathbf{u}(t),
