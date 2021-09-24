@@ -25,4 +25,4 @@ $$
 &= e^{At_f}\mathbf{x}_0+\int_0^{t_f}e^{A\tau}B\mathbf{u}(t_f-\tau)\md\tau.
 $$
 
-In this chapter we shall derive conditions under which systems of the form in {eq}`consys` can be controlled.
+In this chapter we shall derive conditions under which systems of the form in {eq}`consys` can be controlled and, in particular, how to derive the control functions.
