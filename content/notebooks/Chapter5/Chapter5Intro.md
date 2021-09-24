@@ -9,7 +9,7 @@ $$
 
 where $A, B$ and $C$ are $n\times n, n\times p$ and $l\times n$ matrices, respectively.
 
-Then, assuming that $\ds\mathbf{x}(0)=0$, taking Laplace transforms gives
+Then, assuming that $\displaystyle\mathbf{x}(0)=0$, taking Laplace transforms gives
 
 $$
  s\bar{\mathbf{x}} &= A\bar{\mathbf{x}}+B\bar{\mathbf{u}},\\
@@ -64,7 +64,7 @@ $\bar{\mathbf{u}}$, into that of the output, $\bar{\mathbf{y}}$.
 **Example 5.1** The system
 
 $$
- \frac{\md}{\md t}\bmc x_1\\x_2\\x_3\end{pmatrix} &= \begin{pmatrix}6&-2&-5\\-1&-1&1\\8&-2&-7\end{pmatrix}\begin{pmatrix} x_1\\x_2\\x_3\end{pmatrix}+\begin{pmatrix}2\\0\\3\end{pmatrix} u,\\
+ \frac{\mathrm{d}}{\mathrm{d} t}\begin{pmatrix} x_1\\x_2\\x_3\end{pmatrix} &= \begin{pmatrix}6&-2&-5\\-1&-1&1\\8&-2&-7\end{pmatrix}\begin{pmatrix} x_1\\x_2\\x_3\end{pmatrix}+\begin{pmatrix}2\\0\\3\end{pmatrix} u,\\
  y &= [1,-2,0]\begin{pmatrix} x_1\\x_2\\x_3\end{pmatrix},
 $$
 
