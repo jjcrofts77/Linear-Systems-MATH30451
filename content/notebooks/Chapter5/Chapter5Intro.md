@@ -112,6 +112,8 @@ give rise to only one corresponding transfer function matrix, the reverse is
 not true. A given transfer function matrix can be the result of several 
 state-space matrices or systems, *i.e.* it has many possible realisations.
 
+<br>
+
 **Example 5.2** The above transfer function can be realised by any 
 of the following state-space system matrices
 
@@ -130,6 +132,8 @@ $s=0$ from that in (ii). The system matrices in (iii) and (iv) may be thought of
 System and transfer function matrices can also arise from systems of difference 
 equations. In this case the Laplace transform parameter $s$ is replaced by the
 z-transform parameter $z$.
+
+<br>
 
 **Example 5.3** Taking z-transforms of the system of difference equations
 
