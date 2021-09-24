@@ -19,7 +19,7 @@ This Jupyterbook provides the course notes for the third year module Linear Syst
 ### Chapter 3 Linear systems of first order differential and difference equations
    - Homogeneous systems of ODEs
    - Homogeneous systems of difference equations    
-   - Leslie population growth models 
+   - Leslie population growth models (optional)
    - Inhomogeneous systems of ODEs
    - Inhomogeneous systems of difference equations  
 
