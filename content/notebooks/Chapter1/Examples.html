@@ -192,7 +192,7 @@
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../Chapter4/Chapter4Intro.html">
-   Chapter 4 Controllability , observability and stability
+   Chapter 4 Controllability, observability and stability
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
@@ -327,11 +327,11 @@
 </div>
 <p><strong>Example 1.1.1</strong> Assuming that damping effects are negligible, then for a vibrating system as shown the displacements <span class="math notranslate nohighlight">\(x_1, x_2\)</span> of the masses <span class="math notranslate nohighlight">\(m_1, m_2\)</span> from the equilibrium position are given by the system of equations</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} m_1\frac{d^2x_1}{dt} &amp;= -k_1x_1-k_3(x_1-x_2),\\ m_2\frac{d^2x_2}{dt} &amp;= -k_2x_2-k_3(x_2-x_1). \end{split}\]</div>
+\[\begin{split} m_1\frac{\mathrm{d}^2x_1}{\mathrm{d}t^2} &amp;= -k_1x_1-k_3(x_1-x_2),\\ m_2\frac{\mathrm{d}^2x_2}{\mathrm{d}t^2} &amp;= -k_2x_2-k_3(x_2-x_1). \end{split}\]</div>
 <p>That is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \frac{d^2}{dt^2}\left(\begin{array}{c}x_1\\x_2\end{array}\right) = 
+ \frac{\mathrm{d}^2}{\mathrm{d}t^2}\left(\begin{array}{c}x_1\\x_2\end{array}\right) = 
  \left(\begin{array}{cc}-\frac{k_1+k_3}{m_1} &amp; \frac{k_3}{m_1}\\
 \frac{k_3}{m_2}&amp;
 -\frac{k_2+k_3}{m_2}\end{array}\right)\left(\begin{array}{c}x_1\\x_2\end{array}
@@ -340,7 +340,7 @@
 <p>or</p>
 <div class="math notranslate nohighlight">
 \[
- \frac{d^2\mathbf{x}}{dt^2} = A\mathbf{x},
+ \frac{\mathrm{d}^2\mathbf{x}}{\mathrm{d}t^2} = A\mathbf{x},
 \]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
@@ -349,16 +349,16 @@
 \left(\begin{array}{cc}-\frac{k_1+k_3}{m_1} &amp; \frac{k_3}{m_1}\\
 \frac{k_3}{m_2}&amp; -\frac{k_2+k_3}{m_2}\end{array}\right).
 \end{split}\]</div>
-<p>Alternatively, the above system of second order differential equations can be replaced by one containing first order ones by writing <span class="math notranslate nohighlight">\(\displaystyle\frac{dx_1}{dt}=v_1\)</span> and <span class="math notranslate nohighlight">\(\displaystyle\frac{dx_2}{dt}=v_2\)</span>, so that</p>
+<p>Alternatively, the above system of second order differential equations can be replaced by one containing first order ones by writing <span class="math notranslate nohighlight">\(\displaystyle\frac{\mathrm{d}x_1}{\mathrm{d}t}=v_1\)</span> and <span class="math notranslate nohighlight">\(\displaystyle\frac{\mathrm{d}x_2}{\mathrm{d}t}=v_2\)</span>, so that</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- m_1\frac{dv_1}{dt} &amp;= -k_1x_1-k_3(x_1-x_2),\\
- m_2\frac{dv_2}{dt} &amp;= -k_2x_2-k_3(x_2-x_1).
+ m_1\frac{\mathrm{d}v_1}{\mathrm{d}t} &amp;= -k_1x_1-k_3(x_1-x_2),\\
+ m_2\frac{\mathrm{d}v_2}{\mathrm{d}t} &amp;= -k_2x_2-k_3(x_2-x_1).
 \end{split}\]</div>
 <p>Then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\frac{d}{dt}\left(\begin{array}{c}x_1\\x_2\\v_1\\v_2\end{array}\right) = 
+\frac{\mathrm{d}}{\mathrm{d}t}\left(\begin{array}{c}x_1\\x_2\\v_1\\v_2\end{array}\right) = 
 \left(\begin{array}{cccc}0&amp;0&amp;1&amp;0\\0&amp;0&amp;0&amp;1\\-\frac{k_1+k_3}{m_1}&amp;\frac{k_3}{m_1}
 &amp;0&amp;0\\\frac{k_3}{m_2}&amp;-\frac{k_2+k_3}{m_2}&amp;0&amp;0\end{array}\right)
 \begin{pmatrix} x_1\\x_2\\v_1\\v_2\end{pmatrix}.
@@ -369,25 +369,25 @@
 differential equation of the form</p>
 <div class="math notranslate nohighlight">
 \[
-\frac{d^nx}{dt^n}+a_1\frac{d^{n-1}x}{dt^{n-1}}+a_2\frac{d^{n-2}x}{dt^{n-2}}
-+\cdots +a_{n-1}\frac{dx}{dt}+a_nx = 0,
+\frac{\mathrm{d}^nx}{\mathrm{d}t^n}+a_1\frac{\mathrm{d}^{n-1}x}{\mathrm{d}t^{n-1}}+a_2\frac{\mathrm{d}^{n-2}x}{\mathrm{d}t^{n-2}}
++\cdots +a_{n-1}\frac{\mathrm{d}x}{\mathrm{d}t}+a_nx = 0,
 \]</div>
 <p>by a system of first order differential equations obtained by writing</p>
 <div class="math notranslate nohighlight">
 \[
-\displaystyle x_1=x, x_2=\frac{dx}{dt}, x_3=\frac{d^2x}{dt^2},\ldots,
-x_{n}=\frac{d^{n-1}x}{dt^{n-1}}, 
+\displaystyle x_1=x, x_2=\frac{\mathrm{d}x}{\mathrm{d}t}, x_3=\frac{\mathrm{d}^2x}{\mathrm{d}t^2},\ldots,
+x_{n}=\frac{\mathrm{d}^{n-1}x}{\mathrm{d}t^{n-1}}, 
 \]</div>
 <p>so that</p>
 <div class="math notranslate nohighlight">
 \[
- \frac{dx_{n}}{dt}+a_1x_{n}+a_2x_{n-1}+\cdots+a_{n-1}x_2
+ \frac{\mathrm{d}x_{n}}{\mathrm{d}t}+a_1x_{n}+a_2x_{n-1}+\cdots+a_{n-1}x_2
 +a_nx_1 = 0.
 \]</div>
 <p>Then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\frac{d}{dt}\left(\begin{array}{c}x_1\\x_2\\x_3\\\vdots\\x_{n-1}\\x_{n}
+\frac{\mathrm{d}}{\mathrm{d}t}\left(\begin{array}{c}x_1\\x_2\\x_3\\\vdots\\x_{n-1}\\x_{n}
 \end{array}\right)
 =\left(\begin{array}{cccccc}
 0&amp;1&amp;0&amp;\ldots&amp;0&amp;0\\0&amp;0&amp;1&amp;\ldots&amp;0&amp;0\\0&amp;0&amp;0&amp;\ldots&amp;0&amp;0\\
@@ -400,14 +400,14 @@ x_{n}=\frac{d^{n-1}x}{dt^{n-1}},
 <p><strong>Example 1.1.2</strong> Consider a situation in which three thermally insulated tanks each containing an initial volume <span class="math notranslate nohighlight">\(V\)</span> of liquid are connected so that the liquid flows between the tanks at rates as shown and there is a heat flow <span class="math notranslate nohighlight">\(u(t)\)</span> into the first tank, N.B. heat flow <span class="math notranslate nohighlight">\(=\)</span> liquid flow <span class="math notranslate nohighlight">\(\times\)</span> heat per unit volume. Then, if <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span> and <span class="math notranslate nohighlight">\(x_3\)</span> are the amounts of heat in tanks <span class="math notranslate nohighlight">\(1, 2\)</span> and <span class="math notranslate nohighlight">\(3\)</span> respectively</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \frac{dx_1}{dt} &amp;= u(t)+\frac{2Rx_3}{V} -\frac{2Rx_1}{V},\\
- \frac{dx_2}{dt} &amp;= \frac{Rx_1}{V}-\frac{Rx_2}{V},\\
- \frac{dx_3}{dt} &amp;= \frac{Rx_1}{V}+\frac{Rx_2}{V}-\frac{2Rx_3}{V}.
+ \frac{\mathrm{d}x_1}{\mathrm{d}t} &amp;= u(t)+\frac{2Rx_3}{V} -\frac{2Rx_1}{V},\\
+ \frac{\mathrm{d}x_2}{\mathrm{d}t} &amp;= \frac{Rx_1}{V}-\frac{Rx_2}{V},\\
+ \frac{\mathrm{d}x_3}{\mathrm{d}t} &amp;= \frac{Rx_1}{V}+\frac{Rx_2}{V}-\frac{2Rx_3}{V}.
 \end{split}\]</div>
 <p>That is</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\frac{d}{dt}\left(\begin{array}{c}x_1\\x_2\\x_3\end{array}\right) =
+\frac{\mathrm{d}}{\mathrm{d}t}\left(\begin{array}{c}x_1\\x_2\\x_3\end{array}\right) =
 \frac{R}{V}\left(\begin{array}{ccc}-2&amp;0&amp;2\\1&amp;-1&amp;0\\1&amp;1&amp;-2\end{array}\right)\left
 (\begin{array}{c}x_1\\x_2\\x_3\end{array}\right) +
 \left(\begin{array}{c}u(t)\\0\\0\end{array}\right),
@@ -415,7 +415,7 @@ x_{n}=\frac{d^{n-1}x}{dt^{n-1}},
 <p>or</p>
 <div class="math notranslate nohighlight">
 \[
- \frac{d\mathbf{x}}{dt} = A\mathbf{x}+\mathbf{f}(t),
+ \frac{\mathrm{d}\mathbf{x}}{\mathrm{d}t} = A\mathbf{x}+\mathbf{f}(t),
 \]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
@@ -426,14 +426,14 @@ x_{n}=\frac{d^{n-1}x}{dt^{n-1}},
 <p>Now, suppose that, instead of the flow rates being adjusted so that the volume in each of the tanks remains constant, the flow rate from tank <span class="math notranslate nohighlight">\(1\)</span> to tank <span class="math notranslate nohighlight">\(3\)</span> is <span class="math notranslate nohighlight">\(R+r\)</span>. Then, the volume of liquid in tank <span class="math notranslate nohighlight">\(1\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(V-rt\)</span> and the volume in tank <span class="math notranslate nohighlight">\(3\)</span> is <span class="math notranslate nohighlight">\(V+rt\)</span>. It follows that</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \frac{dx_1}{dt} &amp;= u(t)+\frac{2Rx_3}{V+rt} -\frac{(2R+r)}{V-rt}x_1,\\
- \frac{dx_2}{dt} &amp;= \frac{Rx_1}{V-rt}-\frac{Rx_2}{V},\\
- \frac{dx_3}{dt} &amp;= \frac{(R+r)}{V-rt}x_1+\frac{Rx_2}{V}-\frac{2Rx_3}{V+rt},
+ \frac{\mathrm{d}x_1}{\mathrm{d}t} &amp;= u(t)+\frac{2Rx_3}{V+rt} -\frac{(2R+r)}{V-rt}x_1,\\
+ \frac{\mathrm{d}x_2}{\mathrm{d}t} &amp;= \frac{Rx_1}{V-rt}-\frac{Rx_2}{V},\\
+ \frac{\mathrm{d}x_3}{\mathrm{d}t} &amp;= \frac{(R+r)}{V-rt}x_1+\frac{Rx_2}{V}-\frac{2Rx_3}{V+rt},
  \end{split}\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight">
 \[
-  \frac{d\mathbf{x}}{dt} = A(t)\mathbf{x}+\mathbf{f}(t),
+  \frac{\mathrm{d}\mathbf{x}}{\mathrm{d}t} = A(t)\mathbf{x}+\mathbf{f}(t),
 \]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
@@ -446,8 +446,8 @@ A=\left(\begin{array}{rrc}-\frac{2R+r}{V-rt}&amp;0&amp;\frac{2R}{V+rt}\\\frac{R}
 <p><strong>Example 1.1.3</strong> Consider a situation in which liquid of density <span class="math notranslate nohighlight">\(\rho\)</span> is pumped into a tank at rate <span class="math notranslate nohighlight">\(w_I\)</span> and then flows into another tank through a valve at rate <span class="math notranslate nohighlight">\(w\)</span>. If <span class="math notranslate nohighlight">\(h_1\)</span> and <span class="math notranslate nohighlight">\(h_2\)</span> are the heights of liquids in tanks <span class="math notranslate nohighlight">\(1\)</span> and <span class="math notranslate nohighlight">\(2\)</span> respectively, then the mass continuity equations for the tanks are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\rho A_1\frac{dh_1}{dt} &amp;= w_I-w = w_I-c\sqrt{\rho(h_1-h_2)},\\
-\rho A_2\frac{dh_2}{dt} &amp;= w = c\sqrt{\rho(h_1-h_2)}.
+\rho A_1\frac{\mathrm{d}h_1}{\mathrm{d}t} &amp;= w_I-w = w_I-c\sqrt{\rho(h_1-h_2)},\\
+\rho A_2\frac{\mathrm{d}h_2}{\mathrm{d}t} &amp;= w = c\sqrt{\rho(h_1-h_2)}.
 \end{split}\]</div>
 <p>In this case a non-linear system of equations has been obtained. Non-linear systems cannot be solved by the analytical techniques considered in this course rather numerical techniques are typically considered (See TAM and/or NADS). It may also be possible to approximate a non-linear system by a linear one in some circumstances.</p>
 <br>
@@ -487,7 +487,7 @@ population at certain times. In this case the appropriate system would have the 
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/notebooks/Chapter1"
+            path: "./content\notebooks\Chapter1"
         },
         predefinedOutput: true
     }
