@@ -318,7 +318,7 @@
 <h1>3.4 Inhomogeneous Systems of ODEs<a class="headerlink" href="#inhomogeneous-systems-of-odes" title="Permalink to this headline">¶</a></h1>
 <p>The aim of this section is to produce a standard result for the solution of a linear system of first order differential equations of the form</p>
 <div class="math notranslate nohighlight" id="equation-nonhomo">
-<span class="eqno">(1)<a class="headerlink" href="#equation-nonhomo" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(8)<a class="headerlink" href="#equation-nonhomo" title="Permalink to this equation">¶</a></span>\[
  \frac{\mathrm{d}\mathbf{x}}{\mathrm{d} t} = A\mathbf{x}+\mathbf{f}(t)\quad :\quad \mathbf{x}(0)=\mathbf{x}_0.
 \]</div>
 <p>Here <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{f}(t)\)</span> are <span class="math notranslate nohighlight">\(n\)</span>-vectors and <span class="math notranslate nohighlight">\(A\)</span> is an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix.</p>
@@ -365,7 +365,7 @@ x(t) &amp;= e^{3t}\left\{2+\int_0^t{e^{-3\tau}e^{-2\tau}\mathrm{d}\tau}\right\},
      &amp;= 2e^{3t}-\frac{e^{-2t}}{5}+\frac{e^{3t}}{5} = \frac{11}{5}e^{3t}-\frac{e^{-2t}}{5}.
 \end{split}\]</div>
 <br>
-<p>Let us now turn our attention to the original system <a class="reference internal" href="#equation-nonhomo">(1)</a>. Taking Laplace transforms of this system gives</p>
+<p>Let us now turn our attention to the original system <a class="reference internal" href="#equation-nonhomo">(8)</a>. Taking Laplace transforms of this system gives</p>
 <div class="math notranslate nohighlight">
 \[
 s\bar{\mathbf{x}}-\mathbf{x}_0 = A\bar{\mathbf{x}}+\bar{\mathbf{f}}(s),
@@ -428,7 +428,7 @@ A=\begin{pmatrix}-2&amp;1&amp;-1\\0&amp;0&amp;-2\\-4&amp;2&amp;0\end{pmatrix} = 
 \end{split}\]</div>
 <p>It is not always necessary to determine <span class="math notranslate nohighlight">\(\displaystyle e^{At}\)</span>; sometimes it is best to consider the problem under consideration first.</p>
 <br>
-<p><strong>Example 3.4.3</strong> Suppose that we have a system of the form <a class="reference internal" href="#equation-nonhomo">(1)</a>
+<p><strong>Example 3.4.3</strong> Suppose that we have a system of the form <a class="reference internal" href="#equation-nonhomo">(8)</a>
 for which <span class="math notranslate nohighlight">\(A\)</span> is the matrix in the example above, <span class="math notranslate nohighlight">\(\displaystyle\mathbf{f}=[0,1,0]^T\)</span> and <span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_0=\mathbf{0}\)</span>. Then</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
