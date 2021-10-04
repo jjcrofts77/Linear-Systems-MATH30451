@@ -263,9 +263,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/notebooks/Chapter2/Chapter2Intro.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/content/notebooks/Chapter2/Chapter2Intro.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -283,6 +283,23 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/content/notebooks/Chapter2/Chapter2Intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -296,9 +313,201 @@
         
               <div>
                 
-  <div class="section" id="chapter-2-similarity-transformations-and-the-jordan-canonical-form">
+  <p><a href="https://colab.research.google.com/github/jjcrofts77/Linear-Systems-MATH30451/blob/main/content/notebooks/Chapter2/Chapter2Intro.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<div class="section" id="chapter-2-similarity-transformations-and-the-jordan-canonical-form">
 <h1>Chapter 2 Similarity Transformations and the Jordan Canonical Form<a class="headerlink" href="#chapter-2-similarity-transformations-and-the-jordan-canonical-form" title="Permalink to this headline">¶</a></h1>
-<p>Recall that if <span class="math notranslate nohighlight">\(A\)</span> is a real symmetric matrix, and if we choose <span class="math notranslate nohighlight">\(P\)</span> to be the matrix whose columns are the orthonormal eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>, then the matrix <span class="math notranslate nohighlight">\(D=P^{-1}AP\)</span> is diagonal, with non-zero elements given by the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span>. However, if the matrix <span class="math notranslate nohighlight">\(A\)</span> is not symmetric then diagonalisation might not be possible. For such systems, a structure, which is close to diagonal form, known as the Jordan canonical form, can be obtained.</p>
+<p>Recall that if <span class="math notranslate nohighlight">\(A\)</span> is a real symmetric matrix, and if we choose <span class="math notranslate nohighlight">\(P\)</span> to be the matrix whose columns are the orthonormal eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>, then the matrix <span class="math notranslate nohighlight">\(D=P^{-1}AP\)</span> is diagonal, with non-zero elements given by the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Eigen-decomposition</p>
+<div class="figure align-default">
+<img alt="../../../_images/EigDecomp2.png" src="../../../_images/EigDecomp2.png" />
+</div>
+</div>
+<p>Importantly, we can use the above decompostion to solve systems of linear equations such as those seen in Lecture 1. For example, using similarity transformations it is straightforward to map a coupled set of ODEs, which are difficult to solve, to an uncoupled set, which can be solved using standard methods, <em>i.e.</em></p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{\mathrm{d}\mathbf{x}}{\mathrm{d}t} = A\mathbf{x} \longrightarrow \frac{\mathrm{d}\mathbf{y}}{\mathrm{d}t} = D\mathbf{y},
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{\mathrm{d}}{\mathrm{d}t}\begin{pmatrix} x_1\\x_2\\\vdots\\x_n\end{pmatrix} = \begin{pmatrix} a_{11}&amp;a_{12}&amp;\cdots&amp;a_{1n}\\a_{21}&amp;a_{22}&amp;\cdots &amp;a_{2n}\\\vdots&amp;\vdots&amp;\cdots&amp;\vdots\\a_{n1}&amp;a_{n,2}&amp;\cdots&amp;a_{nn}\end{pmatrix}\begin{pmatrix} x_1\\x_2\\\vdots\\x_n\end{pmatrix}
+\longrightarrow \frac{\mathrm{d}}{\mathrm{d}t}\begin{pmatrix} y_1\\y_2\\\vdots\\y_n\end{pmatrix} =\begin{pmatrix} \lambda_1&amp;&amp;&amp;\\&amp;\lambda_2&amp;&amp;\\&amp;&amp;\ddots&amp;\\&amp;&amp;&amp;\lambda_n \end{pmatrix}\begin{pmatrix} y_1\\y_2\\\vdots\\y_n\end{pmatrix}.
+\end{split}\]</div>
+<p>For example, the first <span class="math notranslate nohighlight">\(x\)</span>-equation in the above is given by</p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{\mathrm{d}x_1}{\mathrm{d}t} = a_{11}x_1+a_{12}x_2
++ \cdots +a_{1n}x_n,
+\]</div>
+<p>whereas the corresponding <span class="math notranslate nohighlight">\(y\)</span>-equation is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}y_1}{\mathrm{d}t} = \lambda_1 y_1,
+\]</div>
+<p>which is seperable and so easy to solve.</p>
+<br>
+<p><strong>Example</strong> Solve the differential equation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{x}' = A\mathbf{x} = \begin{pmatrix} -3 &amp;1\\1&amp;-3\end{pmatrix}\mathbf{x}
+\end{split}\]</div>
+<p>via the method of similarity transformations.</p>
+<p><strong>Solution</strong></p>
+<div class="toggle docutils container">
+<p>To start we must determine the eigenvalues and eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>. The characteristic equation is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\det(A-\lambda I_2) = \left|\begin{array}{cc}
+-3-\lambda&amp;1\\1&amp;-3-\lambda
+\end{array}\right| = 
+\lambda^2+6\lambda+8 = 0.
+\end{split}\]</div>
+<p>This gives eigenvalues <span class="math notranslate nohighlight">\(\lambda_1=-2\)</span> and <span class="math notranslate nohighlight">\(\lambda_2=-4\)</span>. Eigenvectors are obtained from</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}-1&amp;1\\1&amp;-1\end{pmatrix}\begin{pmatrix} u_1\\u_2\end{pmatrix} = 0 \quad \text{or}\quad \begin{pmatrix}-1&amp;~1\\0&amp;0\end{pmatrix}\begin{pmatrix} u_1\\u_2\end{pmatrix} = 0 \implies \mathbf{u}_1 = \begin{pmatrix} 1\\1\end{pmatrix} 
+\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}~1&amp;~1\\1&amp;1\end{pmatrix}\begin{pmatrix} u_1\\u_2\end{pmatrix} = 0 \quad \text{or}\quad \begin{pmatrix} ~1&amp;~1\\0&amp;0\end{pmatrix}\begin{pmatrix} u_1\\u_2\end{pmatrix} = 0 \implies \mathbf{u}_2 = \begin{pmatrix} -1\\1\end{pmatrix}. 
+\end{split}\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P = \begin{pmatrix} \mathbf{u}_1&amp; \mathbf{u}_2\end{pmatrix} = \begin{pmatrix} ~1&amp;-1\\1&amp;1\end{pmatrix} \quad \text{and} \quad P^{-1} = \frac{1}{2}\begin{pmatrix} 1~&amp;1\\-1~&amp;1\end{pmatrix}.
+\end{split}\]</div>
+<p>By introducing the new variable <span class="math notranslate nohighlight">\(\displaystyle\mathbf{y} = P^{-1}\mathbf{x}\)</span> we can rewrite the system of ODEs above as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \frac{\mathrm{d}\mathbf{x}}{•\mathrm{d}t} &amp;= PDP^{-1}\mathbf{x}\\
+\iff \frac{\mathrm{d}P^{-1}\mathbf{x}}{\mathrm{d}t} &amp;= DP^{-1}\mathbf{x} \qquad&amp;\text{(multiply by $P^{-1}$ on left)}\\
+\iff \frac{\mathrm{d}\mathbf{y}}{\mathrm{d}t} &amp;= D\mathbf{y} \qquad &amp;\text{(using $\mathbf{y} = P^{-1}\mathbf{x}$)}
+\end{split}\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{\mathrm{d}}{\mathrm{d}t}\begin{pmatrix} y_1\\y_2\end{pmatrix} = \begin{pmatrix} -2&amp;0\\0&amp;-4\end{pmatrix}\begin{pmatrix} y_1\\ y_2\end{pmatrix}.
+\end{split}\]</div>
+<p>But the uncoupled system above is just a pair of 1st order, seperable ODEs, which we learnt how to solve in first year:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}y_1}{\mathrm{d}t} =-2y_1 \implies y_1 = Ae^{-2t} \quad\text{ and }\quad \frac{\mathrm{d}y_2}{\mathrm{d}t} =-4y_2 \implies y_2 = Be^{-4t}.
+\]</div>
+<p>Therefore</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{y} = \begin{pmatrix} Ae^{-2t}\\ Be^{-4t}\end{pmatrix} \implies \mathbf{x} = P\mathbf{y} = \begin{pmatrix} ~1 &amp;-1\\1&amp;1\end{pmatrix}\begin{pmatrix} Ae^{-2t}\\Be^{-4t}\end{pmatrix} = \begin{pmatrix} Ae^{-2t}-Be^{-4t}\\Ae^{-2t}+Be^{-4t}\end{pmatrix}
+\end{split}\]</div>
+<p>Note that we can rewrite the above solution for <span class="math notranslate nohighlight">\(\mathbf{x}(t)\)</span> using the eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{x}(t) = A\begin{pmatrix}1\\1\end{pmatrix} e^{-2t} + B\begin{pmatrix} -1\\1\end{pmatrix} e^{-4t}.
+\end{split}\]</div>
+</div>
+<br>
+<p><strong>Question: What happens when <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is not symmetric?</strong></p>
+<br>
+Consider, for example,
+<div class="math notranslate nohighlight">
+\[\begin{split}
+A = \begin{pmatrix} 1 &amp;-1\\1&amp;3\end{pmatrix}.
+\end{split}\]</div>
+<p>In order to diagonalise <span class="math notranslate nohighlight">\(A\)</span> we need to</p>
+<ol class="simple">
+<li><p>Compute the eigenvalues <span class="math notranslate nohighlight">\(\displaystyle D = \begin{pmatrix} \lambda_1&amp;0\\ 0&amp;\lambda_2 \end{pmatrix}\)</span>; and</p></li>
+<li><p>Compute the eigenvectors <span class="math notranslate nohighlight">\(\displaystyle P = \begin{pmatrix} \mathbf{u}_1&amp;\mathbf{u}_2\end{pmatrix}\)</span>.</p></li>
+</ol>
+<p>The <em>characterisctic polynomial</em> of <span class="math notranslate nohighlight">\(A\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \chi_A(t) &amp;= \left|tI_2-A\right|\\
+ &amp;=\left|\begin{array}{cc}
+ t-1&amp;1\\-1&amp;t-3
+\end{array}  \right|\\
+&amp;= (t-1)(t-3)+1\\
+&amp;=t^2-4t+4 = (t-2)^2.
+\end{split}\]</div>
+<p>Therefore, <span class="math notranslate nohighlight">\(\displaystyle\lambda_1=\lambda_2 = 2\)</span>, <em>i.e.</em> 2 is the only eigenvalue of <span class="math notranslate nohighlight">\(A\)</span>; we say that the eigenvalue has <em>algebraic multiplicity</em> of 2.</p>
+<p>Next we want to compute the <em>eigenspace</em> corresponding to <span class="math notranslate nohighlight">\(\lambda=2\)</span>. To do this we solve</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\lambda I_2-A\right)\mathbf{u} = \left(2I_2-A\right)\mathbf{u} = 0
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix} 1&amp;1\\-1&amp;-1\end{pmatrix}\begin{pmatrix} u_1\\u_2\end{pmatrix} = \mathbf{0}
+\end{split}\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix} 1&amp;1\\~0&amp;~0\end{pmatrix}\begin{pmatrix} u_1\\u_2\end{pmatrix} = \mathbf{0}.
+\end{split}\]</div>
+<p>The eigenspace is thus given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left\{ r\begin{pmatrix} -1\\1\end{pmatrix}: \quad r\in\mathbb{R}\right\} 
+\end{split}\]</div>
+<p>Since (geometric multiplicity) <span class="math notranslate nohighlight">\(1 &lt; 2\)</span> (algebraic multiplicity) we cannot diagonalise the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<p>We can, however, find a matrix <span class="math notranslate nohighlight">\(P\)</span> such that</p>
+<div class="math notranslate nohighlight">
+\[
+ A = PJP^{-1}
+\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ J = \begin{pmatrix} ~2&amp;~1\\0&amp;2\end{pmatrix}.
+\end{split}\]</div>
+<p>For example, the matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ P = \begin{pmatrix} -1 &amp; ~0\\1 &amp; 1\end{pmatrix}
+\end{split}\]</div>
+<p>is such that <span class="math notranslate nohighlight">\(\displaystyle P^{-1}AP = \begin{pmatrix} ~2&amp;~1\\0&amp;2\end{pmatrix}\)</span>.</p>
+<p>To see this note that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ P^{-1} = \begin{pmatrix} -1&amp;~0\\1&amp;1\end{pmatrix}
+\end{split}\]</div>
+<p>and so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P^{-1}AP = \begin{pmatrix} -1&amp;~0\\1&amp;1\end{pmatrix}\begin{pmatrix}1&amp;-1\\1&amp;3\end{pmatrix}\begin{pmatrix} -1 &amp; ~0\\1 &amp; 1\end{pmatrix} = \begin{pmatrix} ~2&amp;~1\\0&amp;2\end{pmatrix}.
+\end{split}\]</div>
+<p>More generally, it can be shown that given any real matrix <span class="math notranslate nohighlight">\(\displaystyle A\in\mathbb{R}^{n\times n}\)</span>, one can always decompose it as</p>
+<div class="math notranslate nohighlight">
+\[
+ A = PJP^{-1},
+\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-jnf">
+<span class="eqno">(8)<a class="headerlink" href="#equation-jnf" title="Permalink to this equation">¶</a></span>\[\begin{split}
+J = \begin{pmatrix} J_{n_1}(\lambda_1)&amp;&amp;\\&amp;\ddots&amp;\\&amp;&amp;J_{n_k}(\lambda_k)\end{pmatrix}, \qquad n_1+n_2+\cdots +n_k = n,
+\end{split}\]</div>
+<p>is a <em>block diagonal matrix</em> with blocks <span class="math notranslate nohighlight">\(\displaystyle J_{n_i}(\lambda_i)\)</span> taking the form</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J_{n_i}(\lambda_i) = \begin{pmatrix} \lambda_i&amp;1&amp;\\&amp;\ddots&amp;1\\&amp;&amp;\lambda_i\end{pmatrix} \in\mathbb{R}^{n_i\times n_i},
+\end{split}\]</div>
+<p>and <span class="math notranslate nohighlight">\(\displaystyle J_1(\lambda_i) = [\lambda_i]\)</span>.</p>
+<p>Notice that if each Jordan block <span class="math notranslate nohighlight">\(\displaystyle J_{n_i}(\lambda_i)\)</span> is one-dimensional, that is, all <span class="math notranslate nohighlight">\(n_i=1\)</span> and <span class="math notranslate nohighlight">\(k=n\)</span>, then the Jordan matrix <span class="math notranslate nohighlight">\(J\)</span> is diagonal.</p>
+<p>The matrix in <a class="reference internal" href="#equation-jnf">(8)</a> is the <em>Jordan normal (or canonical) form</em> of the matrix <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<br>
+<p><strong>Example</strong> The example below highlights how the above notation is used to distingiush between matrices that can be diagonalised and those that cannot.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J_1 = \begin{pmatrix} 2 &amp;0 &amp;0\\0 &amp;2 &amp;0\\0 &amp;0 &amp;2\end{pmatrix} = \begin{pmatrix} J_1(2)&amp;&amp;\\&amp;J_1(2)&amp;\\&amp;&amp;J_1(2) \end{pmatrix}, \quad J_2 = \begin{pmatrix} 2 &amp;0 &amp;0\\0 &amp;2 &amp;1\\0 &amp;0 &amp;2\end{pmatrix} = \begin{pmatrix} J_1(2)&amp;\\&amp;J_2(2) \end{pmatrix} 
+\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+J_3 = \begin{pmatrix} 2 &amp;1 &amp;0\\0 &amp;2 &amp;1\\0 &amp;0 &amp;2\end{pmatrix} = \left[J_3(2)\right].
+\end{split}\]</div>
+<p>The number of Jordan blocks corresponding to a given eigenvalue is the geometric multiplicity of the eigenvalue, which is the dimension of the associated eigenspace.</p>
+<p>It follows that the GMs for the matrices <span class="math notranslate nohighlight">\(J_1, J_2\)</span> and <span class="math notranslate nohighlight">\(J_3\)</span> are <span class="math notranslate nohighlight">\(3, 2\)</span> and <span class="math notranslate nohighlight">\(1\)</span>, respectively.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
