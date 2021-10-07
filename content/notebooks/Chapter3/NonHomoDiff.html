@@ -318,7 +318,7 @@
 <h1>3.5 Inhomogeneous Systems of Difference Equations<a class="headerlink" href="#inhomogeneous-systems-of-difference-equations" title="Permalink to this headline">¶</a></h1>
 <p>We shall now turn our attention to systems of first order difference equations of the form</p>
 <div class="math notranslate nohighlight" id="equation-nonhomodiff">
-<span class="eqno">(11)<a class="headerlink" href="#equation-nonhomodiff" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(12)<a class="headerlink" href="#equation-nonhomodiff" title="Permalink to this equation">¶</a></span>\[
  \mathbf{x}_{k+1} = A\mathbf{x}_k+\mathbf{f}_k
 \]</div>
 <p>for which <span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_0\)</span> is given. The solution of such a system may be found inductively as follows</p>
@@ -334,7 +334,7 @@
 &amp;=A^k\mathbf{x}_0+\sum_{r=0}^{k-1}{A^r\mathbf{f}_{k-1-r}},\\
 &amp;=A^k\mathbf{x}_0+\sum_{r=0}^{k-1}{A^{k-1-r}\mathbf{f}_{r}}.
 \end{split}\]</div>
-<p>Alternatively, it could be found by using z-transforms. Taking z-transforms of  <a class="reference internal" href="#equation-nonhomodiff">(11)</a></p>
+<p>Alternatively, it could be found by using z-transforms. Taking z-transforms of  <a class="reference internal" href="#equation-nonhomodiff">(12)</a></p>
 <div class="margin sidebar">
 <p class="sidebar-title"></p>
 <div class="admonition important">
@@ -426,7 +426,7 @@ D^rH^{-1} = \begin{pmatrix}1&amp;0&amp;0\\0&amp;2^r&amp;0\\0&amp;0&amp;3^r\end{p
 A^r &amp;= HD^rH^{-1}=\begin{pmatrix}1&amp;-1&amp;1\\0&amp;1&amp;-1\\-1&amp;-1&amp;2\end{pmatrix}\begin{pmatrix}1&amp;1&amp;0\\2^r&amp;3\cdot2^r&amp;2^r\\3^r&amp;2\cdot3^r&amp;3^r\end{pmatrix},\\
 &amp;=\begin{pmatrix}1-2^r+3^r&amp;1-3\cdot2^r+2\cdot3^r&amp;-2^r+3^r\\2^r-3^r&amp;3\cdot2^r-2\cdot3^r&amp;2^r-3^r\\-1-2^r+2\cdot3^r&amp;-1-3\cdot2^r+4\cdot3^r&amp;-2^r+2\cdot3^r\end{pmatrix}.
 \end{split}\]</div>
-<p>Suppose now that in the system <a class="reference internal" href="#equation-nonhomodiff">(11)</a>, <span class="math notranslate nohighlight">\(\displaystyle\mathbf{f}_k=[1,0,0]^T\)</span> and <span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_0=[0,-1,2]^T\)</span>.</p>
+<p>Suppose now that in the system <a class="reference internal" href="#equation-nonhomodiff">(12)</a>, <span class="math notranslate nohighlight">\(\displaystyle\mathbf{f}_k=[1,0,0]^T\)</span> and <span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_0=[0,-1,2]^T\)</span>.</p>
 <p>Then, using</p>
 <div class="math notranslate nohighlight">
 \[
@@ -472,7 +472,7 @@ A^k\mathbf{x}_0 = \begin{pmatrix}1-2^k+3^k&amp;1-3\cdot2^k+2\cdot3^k&amp;-2^k+3^
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content\notebooks\Chapter3"
+            path: "./content/notebooks/Chapter3"
         },
         predefinedOutput: true
     }

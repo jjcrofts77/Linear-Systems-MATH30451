@@ -42,6 +42,8 @@
     <script src="../../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -303,6 +305,31 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#laplace-transforms">
+   Laplace Transforms
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#finding-inverse-transforms-using-partial-fractions">
+     Finding inverse transforms using partial fractions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#z-transforms-work-in-progress">
+   Z-Transforms (Work in progress…)
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -314,6 +341,196 @@
   <p><a href="https://colab.research.google.com/github/jjcrofts77/Linear-Systems-MATH30451/blob/main/content/notebooks/Chapter1/TransformRev.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="section" id="laplace-and-z-transforms-revision">
 <h1>1.3 Laplace and Z-Transforms Revision<a class="headerlink" href="#laplace-and-z-transforms-revision" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="laplace-transforms">
+<h2>Laplace Transforms<a class="headerlink" href="#laplace-transforms" title="Permalink to this headline">¶</a></h2>
+<p>Recall from DEM that the <em>Laplace transform (LT)</em> of a function is defined as follows.</p>
+<br>
+<blockquote>
+<div><p><strong>Definition 1.3.1</strong> The <em>Laplace transform</em> of the function, <span class="math notranslate nohighlight">\(f(t)\)</span>, is given by</p>
+<div class="math notranslate nohighlight" id="equation-lt">
+<span class="eqno">(8)<a class="headerlink" href="#equation-lt" title="Permalink to this equation">¶</a></span>\[
+\mathcal{L}[f] = \tilde{f}(t) = \int_0^\infty e^{-st}f(t)\mathrm{d}t.
+\]</div>
+</div></blockquote>
+<br>
+<p><strong>Example 1.3.1</strong> Here we use <a class="reference internal" href="#equation-lt">(8)</a> directly to determine the Laplace transforms of some simple functions.
+<br><br></p>
+<ol class="simple">
+<li><p>For <span class="math notranslate nohighlight">\(\displaystyle f(t)=1, \mathcal{L}[1] = \int_0^\infty e^{-st}\mathrm{d}t = \left[-\frac{1}{s}e^{-st}\right]_0^\infty = \frac{1}{s}\)</span>.
+<br><br></p></li>
+<li><p>For <span class="math notranslate nohighlight">\(\displaystyle f(t)=t, \mathcal{L}[t] = \int_0^\infty te^{-st}\mathrm{d}t = \left[-\frac{1}{s}e^{-st}t\right]_0^\infty+\int_0^\infty \frac{1}{s}e^{-st}\mathrm{d}t = \frac{1}{s^2}\)</span>.
+<br><br></p></li>
+<li><p>For <span class="math notranslate nohighlight">\(\displaystyle f(t)=\frac{\mathrm{d}y}{\mathrm{d}t}, \mathcal{L}\left[\frac{\mathrm{d}y}{\mathrm{d}t}\right] = \int_0^\infty e^{-st}\frac{\mathrm{d}y}{\mathrm{d}t}\mathrm{d}t = \left[e^{-st}y\right]_0^\infty+\int_0^\infty se^{-st}y\mathrm{d}t = \frac{1}{s} = -y(0)+s\tilde{y}(s)\)</span>.
+<br><br></p></li>
+<li><p>For <span class="math notranslate nohighlight">\(\displaystyle f(t)=e^{at}, a\)</span> constant,</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\quad\mathcal{L}[e^{at}] = \int_0^\infty e^{-st}e^{at}\mathrm{d}t = \int_0^\infty e^{-(s-a)t}\mathrm{d}t = \left[-\frac{1}{s-a}e^{-(s-a)t}\right]_0^\infty = \frac{1}{s-a}, ~s&gt;a.
+\]</div>
+<br>
+<p>The following theorem is particularly useful when computing LTs.</p>
+<br>
+<blockquote>
+<div><p><strong>Theorem 1.3.1 (Linearity)</strong> The Laplace transform is a linear operation; that is, for any functions <span class="math notranslate nohighlight">\(f(t)\)</span> and <span class="math notranslate nohighlight">\(g(t)\)</span> whose transforms exist and any constants <span class="math notranslate nohighlight">\(a, b\in\mathbb{R}\)</span> the transform <span class="math notranslate nohighlight">\(af(t)+bg(t)\)</span> exists and</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}[af+bg] = a\mathcal{L}[f] + b\mathcal{L}[g].
+\]</div>
+</div></blockquote>
+<br>
+<p><strong>Example 1.3.2</strong> Using the result <span class="math notranslate nohighlight">\(\displaystyle\mathcal{L}[e^{at}] = 1/(s-a)\)</span> and the fact that the Laplace transform is linear, determine <span class="math notranslate nohighlight">\(\displaystyle \mathcal{L}[\cos(at)]\)</span> and <span class="math notranslate nohighlight">\(\displaystyle \mathcal{L}[\sin(at)]\)</span>.</p>
+<p><strong>Solution</strong></p>
+<div class="toggle docutils container">
+<p>Using DeMoivre’s theorem we know that</p>
+<div class="math notranslate nohighlight">
+\[
+ e^{iat} = \cos(at)+i\sin(at).
+\]</div>
+<p>Also, we have that</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}[e^{iat}] = \frac{1}{s-ia} = \frac{s}{s^2+a^2}+\frac{ia}{s^2+a^2}.
+\]</div>
+<p>Hence, equating the real and imaginary parts and using linearity gives</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}[\cos{at}] = \frac{s}{s^2+a^2}
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}[\sin{at}] = \frac{a}{s^2+a^2}.
+\]</div>
+</div>
+<br>
+<p>Another useful result is the so-called <em>shifting theorem</em>.</p>
+<br>
+<blockquote>
+<div><p><strong>Theorem 1.3.2</strong> If <span class="math notranslate nohighlight">\(f(t)\)</span> has the transform <span class="math notranslate nohighlight">\(\tilde{f}(s)\)</span>, then <span class="math notranslate nohighlight">\(\displaystyle e^{at}f(t)\)</span> has transform <span class="math notranslate nohighlight">\(\displaystyle \tilde{f}(s-a)\)</span> (where <span class="math notranslate nohighlight">\(s-a&gt;0\)</span>). In formulas</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}[e^{at}f(t)] = \tilde{f}(s-a)
+\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[
+e^{at}f(t) = \mathcal{L}^{-1}[\tilde{f}(s-a)].
+\]</div>
+</div></blockquote>
+<br>
+<p><strong>Example 1.3.3</strong> Use the shifting theorem to show that <span class="math notranslate nohighlight">\(\displaystyle \mathcal{L}[e^{at}\cos{\omega t}] = \frac{s-a}{(s-a)^2+\omega^2}\)</span>.</p>
+<p><strong>Solution</strong></p>
+<div class="toggle docutils container">
+<p>Denoting by <span class="math notranslate nohighlight">\(f(t) = \cos{\omega t}\)</span> we have by the shifting theroem that</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}[e^{at}\cos{\omega t}] = \tilde{f}(s-a) 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\displaystyle \tilde{f}(s) = \frac{s}{s^2+\omega^2}\)</span>, so that</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}[e^{at}\cos{\omega t}] = \frac{s-a}{(s-a)^2+\omega^2} 
+\]</div>
+<p>as required.</p>
+</div>
+<br>
+<p>A table of commonly encountered Laplace transforms is given below.</p>
+<br>
+<table class="table" id="table1">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Laplace transforms</span><a class="headerlink" href="#table1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function <span class="math notranslate nohighlight">\(f(t)\)</span></p></th>
+<th class="head"><p>Transform <span class="math notranslate nohighlight">\(\tilde{f}(s)\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle 1/s\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\displaystyle t^n, n\in\mathbb{N}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{n!}{s^{n+1}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\displaystyle e^{at}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{1}{s-a}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\displaystyle \cos{\omega t}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{s}{s^2+\omega^2}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\displaystyle \sin{\omega t}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\omega}{s^2+\omega^2}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\displaystyle e^{at}\cos{\omega t}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{s-a}{(s-a)^2+\omega^2}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\displaystyle e^{at}\sin{\omega t}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{\omega}{(s-a)^2+\omega^2}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\displaystyle u(t-a)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{e^{-as}}{s}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\displaystyle \delta(t-a)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\displaystyle e^{-as}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<br>
+<p>The last two functions in <a class="reference internal" href="#table1"><span class="std std-numref">Table 1</span></a> 1 are respectively the <strong>unit step (or Heaviside) function</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+u(t-a) = \begin{cases}0&amp;t&lt;a\\1&amp;t&gt;a,\end{cases}
+\end{split}\]</div>
+<p>and the <strong>Dirac delta (or impulse) function</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\delta(t-a) = \begin{cases}\infty &amp;t=a\\0&amp; \text{otherwise}\end{cases}\quad\text{such that}\quad \int_0^\infty\delta(t-a)\mathrm{d}t=1.
+\end{split}\]</div>
+<p><br><br></p>
+<div class="section" id="finding-inverse-transforms-using-partial-fractions">
+<h3>Finding inverse transforms using partial fractions<a class="headerlink" href="#finding-inverse-transforms-using-partial-fractions" title="Permalink to this headline">¶</a></h3>
+<p>The inverse Laplace transform is written</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}^{-1}[\tilde{f}] = f.
+\]</div>
+<p>A common situation is when <span class="math notranslate nohighlight">\(\displaystyle \tilde{f}(s)\)</span> is a polynomial, or more generally, a rational function (<em>i.e.</em> a ratio of polynomials), then we can often use partial fractions to simplify the expression.</p>
+<br>
+<p><strong>Example 1.3.5</strong> Show that <span class="math notranslate nohighlight">\(\displaystyle\mathcal{L}^{-1}\left[\frac{1}{2s+3}\right] = \frac{1}{2}e^{-3t/2}\)</span>.</p>
+<p><strong>Solution</strong></p>
+<div class="toggle docutils container">
+<p>By linearity we can write</p>
+<div class="math notranslate nohighlight">
+\[
+\mathcal{L}^{-1}\left[\frac{1}{2s+3}\right] = \frac{1}{2}\mathcal{L}^{-1}\left[\frac{1}{s+3/2}\right] = \frac{1}{2}e^{-3t/2}.
+\]</div>
+<p>Here, we have used the result in the third row of <a class="reference internal" href="#table1"><span class="std std-numref">Table 1</span></a>.</p>
+</div>
+<br>
+<p><strong>Example 1.3.6</strong> Show that <span class="math notranslate nohighlight">\(\displaystyle \mathcal{L}^{-1}\left[\frac{1+s}{(s+3)(s-2)}\right] = \frac{2}{5}e^{-3t}+\frac{3}{5}e^{2t}
+\)</span></p>
+<p><strong>Solution</strong></p>
+<div class="toggle docutils container">
+<p>Using partial fractions we can rewrite</p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{1+s}{(s+3)(s-2)} = \frac{2}{5}\frac{1}{s+3} + \frac{3}{5}\frac{1}{s-2}
+\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathcal{L}^{-1}\left[\frac{1+s}{(s+3)(s-2)}\right] &amp;= \frac{2}{5}\mathcal{L}^{-1}\left[\frac{1}{s+3}\right] + \frac{3}{5}\mathcal{L}^{-1}\left[\frac{1}{s-2}\right]\\ &amp;= \frac{2}{5}e^{-3t} + \frac{3}{5}e^{2t}.
+\end{split}\]</div>
+</div>
+<br>
+</div>
+</div>
+<div class="section" id="z-transforms-work-in-progress">
+<h2>Z-Transforms (Work in progress…)<a class="headerlink" href="#z-transforms-work-in-progress" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -329,7 +546,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content\notebooks\Chapter1"
+            path: "./content/notebooks/Chapter1"
         },
         predefinedOutput: true
     }

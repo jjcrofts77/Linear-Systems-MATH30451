@@ -457,7 +457,7 @@ A' = \begin{pmatrix}-1&amp;1\\-1&amp;-1\end{pmatrix} = A-I_2,
 \end{split}\]</div>
 <p>and <span class="math notranslate nohighlight">\(\displaystyle e^{J_{n_i}t}\)</span> is either of the form <span class="math notranslate nohighlight">\(\displaystyle e^{\lambda_i}I_{n_i}\)</span> or</p>
 <div class="math notranslate nohighlight" id="equation-ejblock">
-<span class="eqno">(13)<a class="headerlink" href="#equation-ejblock" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(14)<a class="headerlink" href="#equation-ejblock" title="Permalink to this equation">¶</a></span>\[\begin{split}
  e^{J_{n_i}t} = e^{\lambda_it}\begin{pmatrix}1&amp;t&amp;\frac{t^2}{2!}&amp;\ldots&amp;\frac{t^{n_i-1}}{(n_i-1)!}\\
  0&amp;1&amp;t&amp;\ldots&amp;\frac{t^{n_i-2}}{(n_i-2)!}\\\vdots&amp;\vdots&amp;\vdots&amp;&amp;\vdots\\
 0&amp;0&amp;0&amp;\ldots&amp;1\end{pmatrix}.
@@ -472,7 +472,7 @@ A' = \begin{pmatrix}-1&amp;1\\-1&amp;-1\end{pmatrix} = A-I_2,
 <ol class="simple">
 <li><p>if <em>any</em> of the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> has a positive real part, the system cannot be stable;</p></li>
 <li><p>if <em>all</em> of the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> have negative real parts, the system is asymptotically stable;</p></li>
-<li><p>If all of the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> have non-positive real part and any eigenvalue which has a zero real part is not repeated (ruling out the possibility of a block like <a class="reference internal" href="#equation-ejblock">(13)</a> in <span class="math notranslate nohighlight">\(\displaystyle e^{At}\)</span>), the system is stable.</p></li>
+<li><p>If all of the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> have non-positive real part and any eigenvalue which has a zero real part is not repeated (ruling out the possibility of a block like <a class="reference internal" href="#equation-ejblock">(14)</a> in <span class="math notranslate nohighlight">\(\displaystyle e^{At}\)</span>), the system is stable.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -546,7 +546,7 @@ H_3=\left|\begin{matrix}8&amp;33&amp;0\\1&amp;19&amp;36\\0&amp;8&amp;33\end{matr
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content\notebooks\Chapter4"
+            path: "./content/notebooks/Chapter4"
         },
         predefinedOutput: true
     }
