@@ -7,7 +7,7 @@ chapters:
   - file: content/notebooks/Chapter1/Examples
   - file: content/notebooks/Chapter1/DiffEqnRev
   - file: content/notebooks/Chapter1/LaplaceTransformRev
-  - file: content/notebooks/Chapter1/ZTransform
+  - file: content/notebooks/Chapter1/ZTransforms
 - file: content/notebooks/Chapter2/Chapter2Intro
   sections:
   - file: content/notebooks/Chapter2/SimTrans
