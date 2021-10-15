@@ -8,7 +8,8 @@ This Jupyterbook provides the course notes for the third year module Linear Syst
 ### Chapter 1 Introduction
    - Real-world examples of linear systems
    - Differential and difference equations revision 
-   - Laplace and z-transforms revision
+   - Laplace transform revision
+   - $z$-Transforms
 
 ### Chapter 2 Similarity transformations and the Jordan canonical form
    - Similarity transformations and diagonalisation
