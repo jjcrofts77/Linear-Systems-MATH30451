@@ -12,6 +12,7 @@ This Jupyterbook provides the course notes for the third year module Linear Syst
 ### Chapter 2 Similarity transformations and the Jordan canonical form
    - Similarity transformations and diagonalisation
    - Jordan nomal form
+   - JNF: The case of the $2 \times 2$ matrix
    - JNF: The case of the $3 \times 3$ matrix
    - Powers of a Jordon block
 
