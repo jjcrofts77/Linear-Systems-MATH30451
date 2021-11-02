@@ -323,6 +323,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#examples">
+   Examples
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -449,30 +462,54 @@ Cayley-Hamilton) given by <span class="math notranslate nohighlight">\(v_1, v_2\
   <br>
 <p>Let us now work through a few examples to help clarify the above.</p>
   <br>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<br>
 <p><strong>Example 2.4.1</strong>  Let</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A = \left(\begin{array}{rc}4&amp;1\\-1&amp;6\end{array}\right).
 \end{split}\]</div>
 <br>
-<p>Then the characteristic equation is given by <span class="math notranslate nohighlight">\(\displaystyle\chi_A(t)=(4-t)(6-t)+1=(t-5)^2\)</span>, so that 5 is the only eigenvalue.</p>
+<p>Then the characteristic equation is given by <span class="math notranslate nohighlight">\(\displaystyle\chi_A(t)=(4-t)(6-t)+1=(t-5)^2\)</span>, so that <span class="math notranslate nohighlight">\(\lambda =5\)</span> is the only eigenvalue.</p>
 <p>Now, since <span class="math notranslate nohighlight">\(A\)</span> is not a multiple of the identity matrix it follows that the Jordan normal form must be given by</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \left[\begin{array}{cc}5&amp;1\\0&amp;5\end{array}\right],
 \end{split}\]</div>
-<p>so now we just have to find a base change matrix to get to it. So, find the eigenvector:</p>
+<p>so now we just have to find a base change matrix to get to it.</p>
+<p>Start by determining the eigenvector associated with the eigenvalue <span class="math notranslate nohighlight">\(\lambda = 5\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\left(\begin{array}{rr}4&amp;1\\-1&amp;6\end{array}\right)\left(\begin{array}{c}x\\y    \end{array}\right) = \left(\begin{array}{c}5x\\5y\end{array}\right).
+\left(A-5I_2\right)\mathbf{u} = 0 \implies\left(\left(\begin{array}{rr}4&amp;1\\-1&amp;6\end{array}\right)-\left(\begin{array}{rr}5&amp;0\\0&amp;5\end{array}\right)\right)\left(\begin{array}{c}u_1\\u_2    \end{array}\right) = \left(\begin{array}{c}0\\0\end{array}\right),
 \end{split}\]</div>
-<p>Thus <span class="math notranslate nohighlight">\(\displaystyle 4x+y=5x\)</span> and <span class="math notranslate nohighlight">\(\displaystyle -x+6y=5y\)</span> which reduce to <span class="math notranslate nohighlight">\(y=x\)</span>, so define <span class="math notranslate nohighlight">\(\displaystyle v_1=[1, 1]^T\)</span>.</p>
-<p>Now extend to a basis of <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span> by, for example, <span class="math notranslate nohighlight">\(\displaystyle v_2=[1, 0]^T\)</span>.</p>
-<p>Next modify the basis by taking <span class="math notranslate nohighlight">\(\displaystyle v'_1=(A-5I)v_2\)</span> which if you work this out is <span class="math notranslate nohighlight">\(\displaystyle [-1, -1]^T\)</span>.</p>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(\begin{array}{rr}-1&amp;1\\-1&amp;1\end{array}\right)\left(\begin{array}{c}u_1\\u_2    \end{array}\right) = \left(\begin{array}{c}0\\0\end{array}\right).
+\end{split}\]</div>
+<p>Thus <span class="math notranslate nohighlight">\(\displaystyle -u_1+u_2=0\)</span> and so <span class="math notranslate nohighlight">\(u_1=u_2\)</span>. Since we have one equation and two unknowns we set <span class="math notranslate nohighlight">\(u_2=\alpha\)</span> and solve for <span class="math notranslate nohighlight">\(u_1=\alpha\)</span> giving the following eigenspace:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="figure align-default" id="figexample241">
+<a class="reference internal image-reference" href="../../../_images/ESEx241.png"><img alt="../../../_images/ESEx241.png" src="../../../_images/ESEx241.png" style="height: 250px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Plot of the eigenspace in Example 2.4.1.</span><a class="headerlink" href="#figexample241" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left\{\alpha\begin{pmatrix}1\\1\end{pmatrix}: \alpha\in \mathbb{R}\right\}.
+\end{split}\]</div>
+<p>Since the G.M.<span class="math notranslate nohighlight">\(= 1&lt;\)</span>A.M.<span class="math notranslate nohighlight">\(= 2\)</span> we need to find a generalised eigenvector to extend to a basis of <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. Here, we pick <span class="math notranslate nohighlight">\(\displaystyle \mathbf{v}=[1, 0]^T\)</span>, but recall that any vector not contained in the eigenspace will do.</p>
+<p>Next, we find a related eigenvector</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{u} = (A-5I_2)\mathbf{v} = \begin{pmatrix}-1\\-1\end{pmatrix}.
+\end{split}\]</div>
 <p>From which we obtain the matrix (<em>similarity transformation</em>) and its inverse:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-P=\left(v'_1, v_2\right)=\left(\begin{array}{cc}-1&amp;1\\-1&amp;0\end{array}\right) \text{ and } P^{-1}=\left(\begin{array}{cc}0&amp;-1\\1&amp;-1\end{array}\right).
+P=\left(\mathbf{u}, \mathbf{v}\right)=\left(\begin{array}{cc}-1&amp;1\\-1&amp;0\end{array}\right) \quad\text{and}\quad P^{-1}=\left(\begin{array}{cc}0&amp;-1\\1&amp;-1\end{array}\right).
 \end{split}\]</div>
 <p>It is left as an exercise to check that</p>
 <div class="math notranslate nohighlight">
@@ -486,33 +523,67 @@ P^{-1}AP = \left(\begin{array}{cc}5&amp;1\\0&amp;5\end{array}\right).
 A=\left(\begin{array}{rrr}-3&amp;-1&amp;1\\-1&amp;-3&amp;1\\-2&amp;-2&amp;0\end{array}\right).
 \end{split}\]</div>
 <br>
-<p>Working out the characteristic equation gives <span class="math notranslate nohighlight">\(\displaystyle\chi_A(t) = (t+2)^3\)</span>. So <span class="math notranslate nohighlight">\(-2\)</span> is the only eigenvalue. Now find eigenvectors,</p>
+<p>Working out the characteristic equation gives <span class="math notranslate nohighlight">\(\displaystyle\chi_A(t) = (t+2)^3\)</span>. So <span class="math notranslate nohighlight">\(\lambda = -2\)</span> is the only eigenvalue.</p>
+<p>Now find the eigenvectors.</p>
 <br>
 <div class="math notranslate nohighlight">
 \[\begin{split}
- \left(\begin{array}{rrr}-3&amp;-1&amp;1\\-1&amp;-3&amp;1\\-2&amp;-2&amp;0\end{array}\right)\left(\begin
+(A+2I_3)\mathbf{u} = \mathbf{0} \implies
+\left(\left(\begin{array}{rrr}-3&amp;-1&amp;1\\-1&amp;-3&amp;1\\-2&amp;-2&amp;0\end{array}\right) + \left(\begin{array}{rrr}2&amp;0&amp;0\\0&amp;2&amp;0\\0&amp;0&amp;2\end{array}\right)\right)\left(\begin
 {array}{c}x\\y\\z\end{array}\right) =
-\left(\begin{array}{c}-2x\\-2y\\-2z\end{array}\right). 
+\left(\begin{array}{c}0\\0\\0\end{array}\right),
+\end{split}\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left(\begin{array}{rrr}-1&amp;-1&amp;1\\-1&amp;-1&amp;1\\-2&amp;-2&amp;2\end{array}\right)\left(\begin{array}{c}u_1\\u_2\\u_3\end{array}\right) = \left(\begin{array}{c}0\\0\\0\end{array}\right).
+\end{split}\]</div>
+<p>These equations reduce to <span class="math notranslate nohighlight">\(\displaystyle -u_1-u_2+u_3=0\)</span>, and so after setting <span class="math notranslate nohighlight">\(u_3=\alpha\)</span> and <span class="math notranslate nohighlight">\(u_2=\beta\)</span> we see that the eigenspace is given by</p>
+<div class="math notranslate nohighlight" id="equation-es">
+<span class="eqno">(14)<a class="headerlink" href="#equation-es" title="Permalink to this equation">¶</a></span>\[\begin{split}
+\left\{\alpha\begin{pmatrix}1\\0\\1\end{pmatrix} + \beta\begin{pmatrix}-1\\1\\0\end{pmatrix} : \alpha, \beta\in\mathbb{R}\right\}.
 \end{split}\]</div>
 <br>
-<p>These equations reduce to <span class="math notranslate nohighlight">\(\displaystyle -x-y+z=0\)</span>, so <span class="math notranslate nohighlight">\(\displaystyle\ker(A+2I)\)</span> is <span class="math notranslate nohighlight">\(2\)</span>-dimensional and we are in case (iii) of the <span class="math notranslate nohighlight">\(3\times 3\)</span> section.</p>
-<p>Pick a basis of <span class="math notranslate nohighlight">\(\displaystyle\ker(A+2I)\)</span>, <em>e.g.</em>, <span class="math notranslate nohighlight">\(\displaystyle v_1=[1, -1,0]^T\)</span> and <span class="math notranslate nohighlight">\(\displaystyle v_2=[0, 1, 1]^T\)</span>.</p>
-<p>Now, <span class="math notranslate nohighlight">\(\displaystyle\ker\left[(A+2I)^2\right]\)</span> must be <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, so extend <span class="math notranslate nohighlight">\(v_1\)</span> and <span class="math notranslate nohighlight">\(v_2\)</span> to a basis of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> by, for example, <span class="math notranslate nohighlight">\(\displaystyle v_3=[1, 0, 0]^T\)</span>.</p>
-<p>Next modify the basis by replacing <span class="math notranslate nohighlight">\(v_1\)</span> with <span class="math notranslate nohighlight">\(\displaystyle v'_1=(A+2I)v_3=[-1,-1,-2]^T\)</span>.</p>
-<p>Form the matrix</p>
+<p>Clearly, <span class="math notranslate nohighlight">\(\displaystyle\ker(A+2I)\)</span> is <span class="math notranslate nohighlight">\(2\)</span>-dimensional and we are in case (iii) of the <span class="math notranslate nohighlight">\(3\times 3\)</span> section.</p>
+<p>To extend to a basis of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, we need to consider the generalised eigenspace given by <span class="math notranslate nohighlight">\(\mathrm{Ker}\left[(A+2I_3)^2\right] = \mathbb{R}^3\)</span>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We cannot find <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> such that</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-P=\left(v'_1,v_2,v_3\right)=\left(\begin{array}{rrr}-1&amp;1&amp;0\\-1&amp;0&amp;1\\-2&amp;0&amp;1\end{array}
+\begin{pmatrix}0\\0\\1\end{pmatrix} = \alpha\begin{pmatrix}1\\0\\1\end{pmatrix} + \beta\begin{pmatrix}-1\\1\\0\end{pmatrix}
+\end{split}\]</div>
+<p>and so <span class="math notranslate nohighlight">\(\begin{pmatrix}0&amp;0&amp;1\end{pmatrix}^T\)</span> does not lie in the eigenspace.</p>
+</div>
+</div>
+<p>It is clear from <a class="reference internal" href="#equation-es">(14)</a> that the generalised eigenvector <span class="math notranslate nohighlight">\(\mathbf{v}=\begin{pmatrix}0 &amp;0&amp;1\end{pmatrix}^T\)</span> does not lie in the <span class="math notranslate nohighlight">\(\lambda\)</span>-eigenspace.</p>
+<p>To obtain a related eigenvector we set</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{u}_2 = (A+2I_2)\mathbf{v} = \begin{pmatrix}1\\1\\2\end{pmatrix}.
+\end{split}\]</div>
+<p>To choose the final eigenvector <span class="math notranslate nohighlight">\(\mathbf{u}_1\)</span>, we pick any vector in our eigenspace that is independent of <span class="math notranslate nohighlight">\(\mathbf{u}_2\)</span> (<em>i.e.</em> not a multiple of <span class="math notranslate nohighlight">\(\mathbf{u}_2\)</span>), say <span class="math notranslate nohighlight">\(\mathbf{u}_1 = \begin{pmatrix}0&amp;1&amp;1\end{pmatrix}^T\)</span>, and form the matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+P = \begin{pmatrix}\mathbf{u}_1&amp;\mathbf{u}_2&amp;\mathbf{v}\end{pmatrix} = \left(\begin{array}{rrr}0&amp;1&amp;0\\1&amp;1&amp;0\\1&amp;2&amp;1\end{array}
 \right).
 \end{split}\]</div>
 <p>We can now check that</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-P^{-1}=\left(\begin{array}{rrr}0&amp;1&amp;-1\\1&amp;1&amp;-1\\0&amp;2&amp;-1\end{array}\right)
-\text{ and that }
-P^{-1}AP=\left(\begin{array}{rrr}-2&amp;1&amp;0\\0&amp;-2&amp;0\\0&amp;0&amp;-2\end{array}\right),
+P^{-1}=\left(\begin{array}{rrr}-1&amp;1&amp;0\\1&amp;0&amp;0\\-1&amp;-1&amp;1\end{array}\right)
+\quad\text{and that}\quad
+P^{-1}AP=\left(\begin{array}{rrr}-2&amp;0&amp;0\\0&amp;-2&amp;1\\0&amp;0&amp;-2\end{array}\right),
 \end{split}\]</div>
 <p>as expected.</p>
+<p>The figure below displays the eigenspace (blue plane) for the problem in 2.4.2 alongside the unit normal (green) and the generalised eigenvector <span class="math notranslate nohighlight">\(v=\begin{pmatrix}0&amp;0&amp;1\end{pmatrix}^T\)</span> (red).</p>
+<div class="figure align-default" id="figexample242">
+<a class="reference internal image-reference" href="../../../_images/ESEx242.png"><img alt="../../../_images/ESEx242.png" src="../../../_images/ESEx242.png" style="height: 500px;" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Plot of the eigenspace in Example 2.4.2.</span><a class="headerlink" href="#figexample242" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
