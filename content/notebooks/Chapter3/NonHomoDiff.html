@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.5 Inhomogeneous Systems of Difference Equations &#8212; Linear Systems MATH30451</title>
+    <title>3.6 Inhomogeneous Systems of Difference Equations &#8212; Linear Systems MATH30451</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -54,7 +54,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Chapter 4 Controllability, observability and stability" href="../Chapter4/Chapter4Intro.html" />
-    <link rel="prev" title="3.4 Inhomogeneous Systems of ODEs" href="NonHomoODE.html" />
+    <link rel="prev" title="3.5 Inhomogeneous Systems of ODEs" href="NonHomoODE.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -192,18 +192,23 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="MarkovProcesses.html">
+     3.3 Markov Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Leslie.html">
-     3.3 Leslie Population Growth Models (optional)
+     3.4 Leslie Population Growth Models (optional)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="NonHomoODE.html">
-     3.4 Inhomogeneous Systems of ODEs
+     3.5 Inhomogeneous Systems of ODEs
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.5 Inhomogeneous Systems of Difference Equations
+     3.6 Inhomogeneous Systems of Difference Equations
     </a>
    </li>
   </ul>
@@ -333,7 +338,7 @@
                 
   <p><a href="https://colab.research.google.com/github/jjcrofts77/Linear-Systems-MATH30451/blob/main/content/notebooks/Chapter3/NonHomoDiff.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="section" id="inhomogeneous-systems-of-difference-equations">
-<h1>3.5 Inhomogeneous Systems of Difference Equations<a class="headerlink" href="#inhomogeneous-systems-of-difference-equations" title="Permalink to this headline">¶</a></h1>
+<h1>3.6 Inhomogeneous Systems of Difference Equations<a class="headerlink" href="#inhomogeneous-systems-of-difference-equations" title="Permalink to this headline">¶</a></h1>
 <p>We shall now turn our attention to systems of first order difference equations of the form</p>
 <div class="math notranslate nohighlight" id="equation-nonhomodiff">
 <span class="eqno">(16)<a class="headerlink" href="#equation-nonhomodiff" title="Permalink to this equation">¶</a></span>\[
@@ -401,7 +406,7 @@
  \sum_{r=0}^\infty A^r\mathbf{f}_{k-r-1}u(k-r-1) = \sum_{r=0}^{k-1}A^r\mathbf{f}_{k-r-1}.
 \]</div>
 <br>
-<p><strong>Example 3.5.1</strong> Consider the difference equation</p>
+<p><strong>Example 3.6.1</strong> Consider the difference equation</p>
 <div class="math notranslate nohighlight">
 \[
  x_{k+1} = \frac{1}{3}x_k+1 \quad :\quad x_0=1.
@@ -413,7 +418,7 @@ x_k &amp;= \left(\frac{1}{3}\right)^k\cdot 1 + \sum_{r=0}^{k-1}\left(\frac{1}{3}
 &amp;= \left(\frac{1}{3}\right)^k+\frac{3}{2}\left[1-\left(\frac{1}{3}\right)^k\right]=\frac{3}{2}-\frac{1}{2}\left(\frac{1}{3}\right)^k.
 \end{split}\]</div>
 <br>
-<p><strong>Example 3.5.2</strong> Consider</p>
+<p><strong>Example 3.6.2</strong> Consider</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A = \begin{pmatrix}2&amp;1&amp;1\\-1&amp;0&amp;-1\\3&amp;5&amp;4\end{pmatrix} = HDH^{-1},
@@ -511,7 +516,7 @@ A^k\mathbf{x}_0 = \begin{pmatrix}1-2^k+3^k&amp;1-3\cdot2^k+2\cdot3^k&amp;-2^k+3^
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">3.4 Inhomogeneous Systems of ODEs</p>
+                <p class="prevnext-title">3.5 Inhomogeneous Systems of ODEs</p>
             </div>
         </a>
     </div>

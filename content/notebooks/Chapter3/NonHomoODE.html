@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.4 Inhomogeneous Systems of ODEs &#8212; Linear Systems MATH30451</title>
+    <title>3.5 Inhomogeneous Systems of ODEs &#8212; Linear Systems MATH30451</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,8 +53,8 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="3.5 Inhomogeneous Systems of Difference Equations" href="NonHomoDiff.html" />
-    <link rel="prev" title="3.3 Leslie Population Growth Models (optional)" href="Leslie.html" />
+    <link rel="next" title="3.6 Inhomogeneous Systems of Difference Equations" href="NonHomoDiff.html" />
+    <link rel="prev" title="3.4 Leslie Population Growth Models (optional)" href="Leslie.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -192,18 +192,23 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="MarkovProcesses.html">
+     3.3 Markov Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Leslie.html">
-     3.3 Leslie Population Growth Models (optional)
+     3.4 Leslie Population Growth Models (optional)
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.4 Inhomogeneous Systems of ODEs
+     3.5 Inhomogeneous Systems of ODEs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="NonHomoDiff.html">
-     3.5 Inhomogeneous Systems of Difference Equations
+     3.6 Inhomogeneous Systems of Difference Equations
     </a>
    </li>
   </ul>
@@ -333,7 +338,7 @@
                 
   <p><a href="https://colab.research.google.com/github/jjcrofts77/Linear-Systems-MATH30451/blob/main/content/notebooks/Chapter3/NonHomoODE.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
 <div class="section" id="inhomogeneous-systems-of-odes">
-<h1>3.4 Inhomogeneous Systems of ODEs<a class="headerlink" href="#inhomogeneous-systems-of-odes" title="Permalink to this headline">¶</a></h1>
+<h1>3.5 Inhomogeneous Systems of ODEs<a class="headerlink" href="#inhomogeneous-systems-of-odes" title="Permalink to this headline">¶</a></h1>
 <p>The aim of this section is to produce a standard result for the solution of a linear system of first order differential equations of the form</p>
 <div class="math notranslate nohighlight" id="equation-nonhomo">
 <span class="eqno">(15)<a class="headerlink" href="#equation-nonhomo" title="Permalink to this equation">¶</a></span>\[
@@ -368,7 +373,7 @@
  x(t) &amp;= e^{at}\left\{x_0+\int_0^t{e^{-a\tau}f(\tau)\mathrm{d}\tau}\right\},\\
       &amp;= e^{at}x_0 +\int_0^t{e^{a(t-\tau)}f(\tau)\mathrm{d}\tau}.
 \end{split}\]</div>
-<p><strong>Example 3.4.1</strong> The differential equation</p>
+<p><strong>Example 3.5.1</strong> The differential equation</p>
 <div class="math notranslate nohighlight">
 \[
  \frac{\mathrm{d} x}{\mathrm{d} t}=3x+e^{-2t}\quad :\quad x(0)=2
@@ -424,7 +429,7 @@ s\bar{\mathbf{x}}-\mathbf{x}_0 = A\bar{\mathbf{x}}+\bar{\mathbf{f}}(s),
  e^{At} = He^{Jt}H^{-1}.
 \]</div>
 <br>
-<p><strong>Example 3.4.2</strong> If</p>
+<p><strong>Example 3.5.2</strong> If</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 A=\begin{pmatrix}-2&amp;1&amp;-1\\0&amp;0&amp;-2\\-4&amp;2&amp;0\end{pmatrix} = HJH^{-1},
@@ -521,7 +526,7 @@ $<span class="math notranslate nohighlight">\(
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">3.3 Leslie Population Growth Models (optional)</p>
+                <p class="prevnext-title">3.4 Leslie Population Growth Models (optional)</p>
             </div>
         </a>
     </div>
@@ -529,7 +534,7 @@ $<span class="math notranslate nohighlight">\(
         <a class="right-next" href="NonHomoDiff.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">3.5 Inhomogeneous Systems of Difference Equations</p>
+                <p class="prevnext-title">3.6 Inhomogeneous Systems of Difference Equations</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>

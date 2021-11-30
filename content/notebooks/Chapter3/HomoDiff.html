@@ -53,7 +53,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="3.3 Leslie Population Growth Models (optional)" href="Leslie.html" />
+    <link rel="next" title="3.3 Markov Processes" href="MarkovProcesses.html" />
     <link rel="prev" title="3.1 Homogeneous Systems of ODEs" href="HomoODE.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -192,18 +192,23 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="MarkovProcesses.html">
+     3.3 Markov Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="Leslie.html">
-     3.3 Leslie Population Growth Models (optional)
+     3.4 Leslie Population Growth Models (optional)
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="NonHomoODE.html">
-     3.4 Inhomogeneous Systems of ODEs
+     3.5 Inhomogeneous Systems of ODEs
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="NonHomoDiff.html">
-     3.5 Inhomogeneous Systems of Difference Equations
+     3.6 Inhomogeneous Systems of Difference Equations
     </a>
    </li>
   </ul>
@@ -331,11 +336,6 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#long-term-behaviour">
    Long-term behaviour
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#markov-processes">
-   Markov Processes
   </a>
  </li>
 </ul>
@@ -566,226 +566,6 @@ H^{-1}\mathbf{x}_0=H\begin{pmatrix}0\\\mathbf{\hat{h}}_n\end{pmatrix}\mathbf{x}_
 any strictly dominant eigenvalue of a matrix.</p>
 <p>Having discussed systems of the form <span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_{k+1}=A\mathbf{x}_k\)</span> in general, we shall now turn our attention to two particular situations that can be described in this way.</p>
 </div>
-<div class="section" id="markov-processes">
-<h2>Markov Processes<a class="headerlink" href="#markov-processes" title="Permalink to this headline">¶</a></h2>
-<p>A <em>Markov process</em> describes a system made up of elements that can be in one of several <em>states</em>, such that after a transition, the numbers in each state changes according to certain probabilities. Importantly, these probabilities only depend on the current state, <em>i.e.</em> a Markov process is <em>memoryless</em>. (The simplest example is a simple coin toss – here there are 2 states, heads or tails, and the probability of being in either state given the current state is 0.5 regardless, for an unbiased coin at least!)</p>
-<br>
-<p><strong>Example 3.2.5 (Nottingham Weather)</strong> Model assumptions:</p>
-<ul class="simple">
-<li><p>The best way to predict tomorrow’s weather is to say it will be the same as today.</p></li>
-<li><p>Two types of weather: sunshine or rain.</p></li>
-</ul>
-<p>Supposing the above predictor is correct 75% of the time, we can model the weather as a two state Markov process.</p>
-<div class="margin sidebar">
-<p class="sidebar-title">State Diagram</p>
-<p>The figure to the left shows the <em>state diagram</em> for the Markov process of our simple Nottingham weather model. This is a graph with <em>nodes</em> denoting the states of the system and directed <em>edges</em> the probabilities of moving between said states.</p>
-</div>
-<div class="figure align-default">
-<a class="reference internal image-reference" href="../../../_images/NottsWeather.png"><img alt="../../../_images/NottsWeather.png" src="../../../_images/NottsWeather.png" style="height: 250px;" /></a>
-</div>
-<p>In matrix form</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-P = \begin{pmatrix} \frac{3}{4}&amp;\frac{1}{4}\\\frac{1}{4}&amp;\frac{3}{4}\end{pmatrix}.
-\end{split}\]</div>
-<br>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ol class="simple">
-<li><p>We say that <span class="math notranslate nohighlight">\(P\)</span> is a <em>stochastic matrix</em> since
-<br><br>
-<span class="math notranslate nohighlight">\(
-\sum_iP_{ij} = \sum_jP_{ij} = 1. \qquad\color{red}{\text{ (since the entries are probabilities)}}
-\)</span>
-<br><br></p></li>
-<li><p>Typically <span class="math notranslate nohighlight">\(P\)</span> will only be <em>row stochastic</em> meaning that <span class="math notranslate nohighlight">\(\displaystyle\sum_jP_{ij}=1\)</span>.<br><br></p></li>
-<li><p>The above formulation provides a simple model for describing the Nottingham weather:</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-  \mathbf{x}_{k+1} &amp;= P^T\mathbf{x}_k, \qquad \mathbf{x}_0 = \mathbf{c}\\
-  &amp;= \begin{pmatrix} \frac{3}{4}&amp;\frac{1}{4}\\\frac{1}{4}&amp;\frac{3}{4}\end{pmatrix}\mathbf{x}_k, \qquad \mathbf{x}_0 = \mathbf{c}. \qquad \color{red}{(\mathbf{x}_k - \text{prob of rain or sunshine on } k^{\mathrm{th}} \text{ day})}
-\end{split}\]</div>
-<p>Multiplying out, we see that</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-  x_{k+1}^{(1)} &amp;=\frac{3}{4}x_k^{(1)}+\frac{1}{4}x_k^{(2)},\qquad x_0^{(1)}=c^{(1)}\\
-    x_{k+1}^{(2)}&amp;=\frac{1}{4}x_k^{(1)}+\frac{3}{4}x_k^{(2)},\qquad x_0^{(2)}=c^{(2)}.\end{split}\]</div>
-<p>Now, suppose <span class="math notranslate nohighlight">\(\displaystyle\mathbf{c}^T = \begin{pmatrix} 1&amp;0\end{pmatrix}\)</span>, <em>i.e.</em> it is sunny today, then</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
- \begin{pmatrix} x^{(1)}_1\\x^{(2)}_1\end{pmatrix} &amp;=\begin{pmatrix}\frac{3}{4}\\\frac{1}{4}\end{pmatrix} \qquad\color{red}{\text{ 75% chance of sunshine; 25% chance of rain}}\\
-  \begin{pmatrix} x^{(1)}_2\\x^{(2)}_2\end{pmatrix} &amp;=\begin{pmatrix}\frac{3}{4}\cdot\frac{3}{4}+\frac{1}{4}\cdot\frac{1}{4}\\\frac{1}{4}\cdot\frac{3}{4}+\frac{3}{4}\cdot\frac{1}{4}\end{pmatrix}\\
-  &amp;= \begin{pmatrix} \frac{10}{16}\\\frac{6}{16}\end{pmatrix} \qquad\color{red}{\text{ 62% chance of sunshine; 38% chance of rain}}
-\end{split}\]</div>
-<p>Importantly, in the above model we see that uncertainty inceases as we move further into the future, as expected.</p>
-</div>
-<p>In the above example, the characteristic polynomial is given by</p>
-<div class="math notranslate nohighlight">
-\[
-\chi_{P^T}(t) = \left(t-1\right)\left(t-\frac{1}{2}\right)
-\]</div>
-<p>thus <span class="math notranslate nohighlight">\(\lambda =1\)</span> is the dominant eigenvalue and so for large <span class="math notranslate nohighlight">\(k\)</span>, <span class="math notranslate nohighlight">\(\displaystyle \mathbf{x}_k\)</span> will tend to a constant vector <span class="math notranslate nohighlight">\(\mathbf{x}^*\)</span>. It can be shown that <span class="math notranslate nohighlight">\(\displaystyle \mathbf{x}^*\)</span> is given by the eigevector, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, of <span class="math notranslate nohighlight">\(\displaystyle P^T\)</span> corresponding to the eigenvalue <span class="math notranslate nohighlight">\(\lambda = 1\)</span>.</p>
-<p>Thus</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
- \mathbf{x}^* = \begin{pmatrix} 0.5\\0.5\end{pmatrix}
-\end{split}\]</div>
-<p>in our case. (<em>i.e.</em> long-term weather forecasting is doomed – at least with our simple model.)</p>
-<p>Actually</p>
-<div class="math notranslate nohighlight">
-\[
- \mathbf{x}^* = \frac{\mathbf{v}}{\sum_i v^{(i)}},
-\]</div>
-<p>as <span class="math notranslate nohighlight">\(\displaystyle \mathbf{x}^*\)</span> is a probability vector.</p>
-<br>
-<p>More generally, we can define an <span class="math notranslate nohighlight">\(n\)</span>-state Markov process by a <em>transition matrix</em> <span class="math notranslate nohighlight">\(\displaystyle P\in\mathbb{R}^{n\times n}\)</span> given by</p>
-<br>
-<div class="math notranslate nohighlight">
-\[\begin{split}
- P = (p_{ij}) = \begin{pmatrix}
-                 p_{11}&amp;p_{12}&amp;\ldots&amp;p_{1n}\\
-                 p_{21}&amp;p_{22}&amp;\ldots&amp;p_{2n}\\
-                 \vdots&amp;\vdots&amp;&amp;\vdots\\
-                 p_{n1}&amp;p_{n2}&amp;\ldots&amp;p_{nn} 
-                \end{pmatrix},
-\end{split}\]</div>
-<br>
-<p>where <span class="math notranslate nohighlight">\(\displaystyle 0\leq p_{ij} \leq 1\)</span> <span class="math notranslate nohighlight">\((i,j=1,2,\ldots, n)\)</span> and <span class="math notranslate nohighlight">\(\sum_{j=1}^np_{ij}=1\)</span>.</p>
-<p>It is clear that the connection between the state vector
-<span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_k=[x^{(1)}_k,x^{(2)}_k,\ldots,x^{(n)}_k]^T\)</span> at one particular stage
-and <span class="math notranslate nohighlight">\(\displaystyle \mathbf{x}_{k+1}=[x^{(1)}_{k+1},x^{(2)}_{k+1},\ldots,x^{(n)}_{k+1}]^T\)</span> at
-the next is given by</p>
-<div class="math notranslate nohighlight">
-\[
- \mathbf{x}_{k+1} = P^T\mathbf{x}_k.
-\]</div>
-<p>Then, given an initial state vector <span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_0\)</span>, we know that
-<span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_k=\left(P^T\right)^k\mathbf{x}_0\)</span>.</p>
-<p>Very often we do not construct <span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_k\)</span> from the numbers in each of the
-states but from the proportions of the total number of elements in the process
-which are in each of these states. Then, clearly <span class="math notranslate nohighlight">\(\displaystyle 0\leq x^{(i)}_k\leq 1\)</span> and
-<span class="math notranslate nohighlight">\(\displaystyle\sum_{i=1}^nx^{(i)}_k=1\)</span>. In this case, we can call <span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_k\)</span> a
-probability vector.</p>
-<p>As we have seen before, the long term behaviour of a Markov process depends on
-the eigenvalues of the matrix <span class="math notranslate nohighlight">\(P^T\)</span> and it is easy to show that one of these
-eigenvalues is <span class="math notranslate nohighlight">\(1\)</span>. For, consider</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
- |P^T-I_n|&amp;=\left|\begin{matrix}
-                   p_{11}-1&amp;p_{21}&amp;\ldots&amp;p_{n1}\\
-                   p_{12}&amp;p_{22}-1&amp;\ldots&amp;p_{n2}\\
-                   \vdots&amp;\vdots&amp;&amp;\vdots\\
-                   p_{1n}&amp;p_{2n}&amp;\ldots&amp;p_{nn}-1
-                  \end{matrix}
-\right|,\\
- &amp;=\left|\begin{matrix}
-                   \sum_{i=1}^np_{1i}-1&amp;\sum_{i=1}^np_{2i}-1&amp;
-                   \ldots&amp;\sum_{i=1}^np_{ni}-1\\
-                   p_{12}&amp;p_{22}-1&amp;\ldots&amp;p_{n2}\\
-                   \vdots&amp;\vdots&amp;&amp;\vdots\\
-                   p_{1n}&amp;p_{2n}&amp;\ldots&amp;p_{nn}-1
-                  \end{matrix}
-\right|,\\  &amp;=\left|\begin{matrix}
-                   0&amp;0&amp;\ldots&amp;0\\
-                   p_{12}&amp;p_{22}-1&amp;\ldots&amp;p_{n2}\\
-                   \vdots&amp;\vdots&amp;&amp;\vdots\\
-                   p_{1n}&amp;p_{2n}&amp;\ldots&amp;p_{nn}-1
-                  \end{matrix}
-\right|=0.
-\end{split}\]</div>
-<p>We have thus shown that there is a potential stationary vector for this process,
-this being the eigenvector (of <span class="math notranslate nohighlight">\(\displaystyle P^T\)</span> or equivalently the left-eigenvector of
-<span class="math notranslate nohighlight">\(\displaystyle P\)</span>) which corresponds to the eigenvalue <span class="math notranslate nohighlight">\(1\)</span>.</p>
-<p>There are then two questions which we can ask about this eigenvector and the
-first is whether we can be sure that its elements are all non-negative, so
-that it can conform to the requirement of being a probability vector. The
-second question concerns whether the Markov process under consideration will
-always settle down to this vector eventually, whatever the starting point
-<span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}_0\)</span>.</p>
-<p>We can answer both of these questions in the affirmative if it can be shown that
-the eigenvalue <span class="math notranslate nohighlight">\(1\)</span> is strictly dominant, as was the case for the eigenvalue
-<span class="math notranslate nohighlight">\(\displaystyle\lambda_1\)</span> of a Leslie matrix under certain conditions.</p>
-<p>Now, the dominance of the eigenvalue <span class="math notranslate nohighlight">\(1\)</span> can be established by means of a result
-that states that the magnitude of any eigenvalue of a given matrix does not
-exceed <span class="math notranslate nohighlight">\(\displaystyle\min(\rho,\gamma)\)</span>, where <span class="math notranslate nohighlight">\(\rho\)</span> is the maximum sum of the magnitudes of
-the elements in any one of its rows and <span class="math notranslate nohighlight">\(\gamma\)</span> is the corresponding maximum
-for its columns.</p>
-<p>Clearly, for a transition matrix <span class="math notranslate nohighlight">\(\displaystyle\min(\rho,\gamma)\leq 1\)</span>, so the eigenvalue
-<span class="math notranslate nohighlight">\(1\)</span> is dominant. However, as we can see from the following example, it is not
-necessarily strictly dominant.</p>
-<br>
-<p><strong>Example 3.2.6</strong> The matrix</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-P_1=\begin{pmatrix}0&amp;1\\1&amp;0\end{pmatrix},
-\end{split}\]</div>
-<p>has eigenvalues <span class="math notranslate nohighlight">\(\pm{1}\)</span>. Also, the probability eigenvector corresponding
-to the eigenvalue <span class="math notranslate nohighlight">\(1\)</span> is <span class="math notranslate nohighlight">\([\frac{1}{2}, \frac{1}{2}]^T\)</span> and it is easy to
-see that there are starting points which do not lead to this vector. For example, if</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mathbf{x}_0 = \begin{pmatrix}
-                                        0\\1
-                                       \end{pmatrix},
-\mathbf{x}_1=\begin{pmatrix}
- 1\\0
-\end{pmatrix}=\mathbf{x}_3=\mathbf{x}_5,\ldots, \quad
-\mathbf{x}_2=\begin{pmatrix}
-              1\\0
-             \end{pmatrix}=\mathbf{x}_4=\mathbf{x}_6,\ldots.        
-\end{split}\]</div>
-<p>There is a condition which establishes the strict dominance of the eigenvalue,
-and this is that the transition matrix <span class="math notranslate nohighlight">\(P\)</span> should be regular, in that there is
-some power <span class="math notranslate nohighlight">\(P^r\)</span> which has elements which are all positive. When this occurs
-we know that the Markov process under consideration will always settle down
-to the appropriate stationary vector.</p>
-<br>
-<p><strong>Example 3.2.7</strong> The matrix <span class="math notranslate nohighlight">\(P_1\)</span> above is not regular because it is easy
-to see that</p>
-<div class="math notranslate nohighlight">
-\[
- P^{2r}=I_2\qquad\&amp;\qquad P^{2r+1}=P_1\qquad (r=0,1,2,\ldots).
-\]</div>
-<br>
-<p><strong>Example 3.2.8</strong> The matrix</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-P_2=\begin{pmatrix}0.2&amp;0.8\\0.6&amp;0.4\end{pmatrix},
-\end{split}\]</div>
-<p>is clearly regular and has eigenvalues given by</p>
-<div class="math notranslate nohighlight">
-\[
- |P-\lambda I_2| = (\lambda-1)(\lambda+0.4)=0 \qquad 
- \text{i.e., $\lambda=1$ or $\lambda=-0.4$.}
-\]</div>
-<p>The left eigenvector corresponding to
-<span class="math notranslate nohighlight">\(\lambda=1\)</span> is given by</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{pmatrix}-0.8&amp;0.6\\0.8&amp;-0.6\end{pmatrix}\begin{pmatrix} u_1\\u_2\end{pmatrix}=\mathbf{0},
-\end{split}\]</div>
-<p>and is therefore of the form <span class="math notranslate nohighlight">\(\displaystyle [3a, 4a]^T\)</span>.</p>
-<p>As a probability vector, we have</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mathbf{u}=\begin{pmatrix}\frac{3}{7}\\\frac{4}{7}\end{pmatrix}.
-\end{split}\]</div>
-<p>For example, suppose</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mathbf{x}_0=\begin{pmatrix}0.5\\0.5\end{pmatrix}.
-\end{split}\]</div>
-<p>Then</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
- \mathbf{x}_1=\begin{pmatrix} 0.4\\0.6\end{pmatrix}, \mathbf{x}_2=\begin{pmatrix} 0.44\\0.56\end{pmatrix}, 
- \mathbf{x}_3=\begin{pmatrix} 0.424\\0.576\end{pmatrix} \text{ and } 
- \mathbf{x}_4=\begin{pmatrix} 0.4304\\0.5696\end{pmatrix} \qquad 
- \left(\text{c.f.} \begin{pmatrix}\frac{3}{7}\\\frac{4}{7}\end{pmatrix}=
- \begin{pmatrix} 0.4286\\0.5714\end{pmatrix}\right).
-\end{split}\]</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -827,10 +607,10 @@ P_2=\begin{pmatrix}0.2&amp;0.8\\0.6&amp;0.4\end{pmatrix},
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="Leslie.html" title="next page">
+        <a class="right-next" href="MarkovProcesses.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">3.3 Leslie Population Growth Models (optional)</p>
+                <p class="prevnext-title">3.3 Markov Processes</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
