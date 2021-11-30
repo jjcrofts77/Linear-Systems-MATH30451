@@ -19,6 +19,7 @@ chapters:
   sections:
   - file: content/notebooks/Chapter3/HomoODE
   - file: content/notebooks/Chapter3/HomoDiff
+  - file: content/notebooks/Chapter3/MarkovProcesses
   - file: content/notebooks/Chapter3/Leslie
   - file: content/notebooks/Chapter3/NonHomoODE    
   - file: content/notebooks/Chapter3/NonHomoDiff    
