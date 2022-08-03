@@ -29,3 +29,5 @@ chapters:
   - file: content/notebooks/Chapter4/Stability
   - file: content/notebooks/Chapter4/BIBO
 - file: content/notebooks/Chapter5/Chapter5Intro  
+  sections:
+  - file: content/notebooks/Chapter5/SysAndTrans
