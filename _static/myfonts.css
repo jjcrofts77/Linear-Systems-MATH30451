@@ -1,2 +1,19 @@
-p{
+p { font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+
+color: #0;
+
+font-weight: 500;
+
+font-size: 1.4rem;
+
+line-height: 1.8rem;
+
+margin-top: 1.4rem;
+
+margin-bottom: 1.4rem;
+
+padding-right: 0;
+
+vertical-align: baseline;
+
 }
