@@ -29,8 +29,9 @@ This Jupyterbook provides the course notes for the third year module Linear Syst
    - Linear stability
    - BIBO stability and feedback
 
-### Chapter 5 System and transfer functions
-
+### Chapter 5 Frequency-Domain Control
+   - System and transfer functions
+   
 <br>
 
 ## References
