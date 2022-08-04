@@ -1,0 +1,44 @@
+# Solution curves for Example 3.5.3
+
+# load packages for integrating ODEs and plotting solutions
+import numpy as np # matlab-like commands 
+import matplotlib.pyplot as plt # plotting tools
+
+# initialise plots
+fig = plt.figure(figsize=[25,7.5])
+
+# t\in [0,2]
+t = np.linspace(0,2)
+
+# 3-d trajectory
+ax = fig.add_subplot(1, 2, 1, projection='3d')
+x1 = t-t**2/2-(1-np.exp(-2*t))/2
+x2 = 2*t-t**2-(1-np.exp(-2*t))/2
+x3 = t-(1-np.exp(-2*t))/2
+ax.plot3D(x1, x2, x3, 'gray')
+
+# highlight initial and final points on the 3D plot
+ax.scatter(0,0,0)
+tt = t[-1]
+ax.scatter(tt-tt**2/2-(1-np.exp(-2*tt))/2,2*tt-tt**2-(1-np.exp(-2*tt))/2,tt-(1-np.exp(-2*tt))/2)
+
+# add title and axis labels to 3D plot
+ax.set_xlabel('$x_1$',size=18)
+ax.set_ylabel('$x_2$',size=18)
+ax.set_zlabel('$x_3$',size=18)
+ax.set_title('Trajectory $\mathbf{x}(t), t\in[0,2]$ from Example 3.5.3',size=20,weight='bold')
+
+# plot individual trajectories
+ax = fig.add_subplot(1, 2, 2)
+ax.plot(t,x1,label="$x_1$")
+ax.plot(t,x2,label="$x_2$")
+ax.plot(t,x3,label="$x_3$")
+
+# add title and axis labels
+ax.set_xlabel('$t$',size=18)
+ax.set_ylabel('$x_i$',size=18)
+plt.title('Plot of $x_1, x_2$ and $x_3$ for $t\in[0,2]$',size=20,weight='bold')
+leg = plt.legend(loc='upper left',fontsize=16)
+
+# draw both plots
+plt.show()

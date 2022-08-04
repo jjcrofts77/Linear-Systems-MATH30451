@@ -1,0 +1,649 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>5.1 System and Transfer Functions &#8212; Linear Systems MATH30451</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfonts.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"HTML-CSS": {"matchFontHeight": true, "scale": 110}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="Chapter 5 Frequency-Domain Control" href="Chapter5Intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/math.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Linear Systems MATH30451</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Course Overview
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1/Chapter1Intro.html">
+   Chapter 1 Introduction
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter1/Examples.html">
+     1.1 Real-world Examples of Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter1/DiffEqnRev.html">
+     1.2 Differential and Difference Equations Revision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter1/LaplaceTransformRev.html">
+     1.3 Laplace Transform Revision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter1/ZTransforms.html">
+     1.4
+     <span class="math notranslate nohighlight">
+      \(z\)
+     </span>
+     -Transforms and Difference Equations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2/Chapter2Intro.html">
+   Chapter 2 Similarity Transformations and the Jordan Canonical Form
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter2/SimTrans.html">
+     2.1 Similarity Transformations and the Jordan Canonical Form
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter2/JNF.html">
+     2.2 Jordon Normal Form
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter2/JNF2by2.html">
+     2.3 JNF: The Case of the
+     <span class="math notranslate nohighlight">
+      \(2 \times 2\)
+     </span>
+     Matrix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter2/JNF3by3.html">
+     2.4 JNF: The Case of the
+     <span class="math notranslate nohighlight">
+      \(3 \times 3\)
+     </span>
+     Matrix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter2/PowersJB.html">
+     2.5 Powers of a Jordon Block
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3/Chapter3Intro.html">
+   Chapter 3 Linear systems of first order differential and difference equations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/HomoODE.html">
+     3.1 Homogeneous Systems of ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/HomoDiff.html">
+     3.2 Homogeneous Systems of Difference Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/MarkovProcesses.html">
+     3.3 Markov Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/Leslie.html">
+     3.4 Leslie Population Growth Models (optional)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/NonHomoODE.html">
+     3.5 Inhomogeneous Systems of ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/NonHomoDiff.html">
+     3.6 Inhomogeneous Systems of Difference Equations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter4/Chapter4Intro.html">
+   Chapter 4 Controllability, observability and stability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter4/ControlObserve.html">
+     4.1 Controllability and Observability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter4/Stability.html">
+     4.2 Linear Stability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter4/BIBO.html">
+     4.3 BIBO Stability and Feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Chapter5Intro.html">
+   Chapter 5 Frequency-Domain Control
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     5.1 System and Transfer Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/content/notebooks/Chapter5/SysAndTrans.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/notebooks/Chapter5/SysAndTrans.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>5.1 System and Transfer Functions</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/jjcrofts77/Linear-Systems-MATH30451/blob/main/content/notebooks/Chapter5/SysAndTrans.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="system-and-transfer-functions">
+<h1>5.1 System and Transfer Functions<a class="headerlink" href="#system-and-transfer-functions" title="Permalink to this headline">#</a></h1>
+<p>Consider a system whose <em>input-state</em> and <em>state-output</em> relationship are given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \frac{\mathrm{d}\mathbf{x}}{\mathrm{d} t} &amp;= A\mathbf{x}+B\mathbf{u},\\
+ \mathbf{y}&amp;=C\mathbf{x},
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A, B\)</span> and <span class="math notranslate nohighlight">\(C\)</span> are <span class="math notranslate nohighlight">\(n\times n, n\times p\)</span> and <span class="math notranslate nohighlight">\(l\times n\)</span> matrices, respectively.</p>
+<p>Then, assuming that <span class="math notranslate nohighlight">\(\displaystyle\mathbf{x}(0)=0\)</span>, taking Laplace transforms gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ s\bar{\mathbf{x}} &amp;= A\bar{\mathbf{x}}+B\bar{\mathbf{u}},\\
+ \bar{\mathbf{y}} &amp;=C\bar{\mathbf{x}}.
+\end{split}\]</div>
+<p>Rearranging the first of these two equations to give</p>
+<div class="math notranslate nohighlight">
+\[
+ (sI_n-A)\bar{\mathbf{x}} = B\bar{\mathbf{u}},
+\]</div>
+<p>we see that the situation can be represented in matrix form as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{pmatrix} sI_n-A&amp;B\\-C&amp;0\end{pmatrix}\begin{pmatrix}\bar{\mathbf{x}}\\-\bar{\mathbf{u}}\end{pmatrix} = \begin{pmatrix}0\\-\bar{\mathbf{y}}\end{pmatrix}.
+\end{split}\]</div>
+<p>Here, the <span class="math notranslate nohighlight">\((n+l)\times(n+p)\)</span> matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ P(s) = \begin{pmatrix} sI_n-A&amp;B\\-C&amp;0\end{pmatrix},
+\end{split}\]</div>
+<p>is called the <em>state-space system matrix</em> of the given system.</p>
+<p>Now, from the rearranged equation involving <span class="math notranslate nohighlight">\(\bar{\mathbf{x}}\)</span> and <span class="math notranslate nohighlight">\(\bar{\mathbf{u}}\)</span>,
+we see that</p>
+<div class="math notranslate nohighlight">
+\[
+ \bar{\mathbf{x}} = (sI_n-A)^{-1}B\bar{\mathbf{u}},
+\]</div>
+<p>and hence that</p>
+<div class="math notranslate nohighlight">
+\[
+ \bar{\mathbf{y}} = C(sI_n-A)^{-1}B\bar{\mathbf{u}} = G(s)\bar{\mathbf{u}}.
+\]</div>
+<p>Here we have used the <span class="math notranslate nohighlight">\(l\times p\)</span> matrix</p>
+<div class="math notranslate nohighlight">
+\[
+ G(s) = C(sI_n-A)^{-1}B,
+\]</div>
+<p>which is called the <em>transfer function matrix</em> of the system. Knowledge
+of this matrix allows us to convert the Laplace transform of the input,
+<span class="math notranslate nohighlight">\(\bar{\mathbf{u}}\)</span>, into that of the output, <span class="math notranslate nohighlight">\(\bar{\mathbf{y}}\)</span>.</p>
+<br>
+<p><strong>Example 5.1.1</strong> The system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \frac{\mathrm{d}}{\mathrm{d} t}\begin{pmatrix} x_1\\x_2\\x_3\end{pmatrix} &amp;= \begin{pmatrix}6&amp;-2&amp;-5\\-1&amp;-1&amp;1\\8&amp;-2&amp;-7\end{pmatrix}\begin{pmatrix} x_1\\x_2\\x_3\end{pmatrix}+\begin{pmatrix}2\\0\\3\end{pmatrix} u,\\
+ y &amp;= [1,-2,0]\begin{pmatrix} x_1\\x_2\\x_3\end{pmatrix},
+\end{split}\]</div>
+<p>gives rise to the state-space matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ P(s) = \begin{pmatrix} s-6&amp;2&amp;5&amp;|&amp;2\\1&amp;s+1&amp;-1&amp;|&amp;0\\-8&amp;2&amp;s+7&amp;|&amp;3\\-&amp;-&amp;-&amp;|&amp;-\\-1&amp;2&amp;0&amp;|&amp;0\end{pmatrix},
+\end{split}\]</div>
+<p>and the transfer function (matrix)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ G(s) &amp;= \begin{pmatrix}1&amp;-2&amp;0\end{pmatrix}\begin{pmatrix} s-6&amp;2&amp;5\\1&amp;s+1&amp;-1\\-8&amp;2&amp;s+7\end{pmatrix}^{-1}\begin{pmatrix}2\\0\\3\end{pmatrix}\\
+      &amp;=\begin{pmatrix} 1&amp;-2&amp;0\end{pmatrix}\frac{1}{\Delta(s)}\begin{pmatrix} s^2+8s+9&amp;*&amp;-5s-7\\1-s&amp;*&amp;s-1\\ *&amp;*&amp;*\end{pmatrix}
+      \begin{pmatrix}2\\0\\3\end{pmatrix},
+\end{split}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left|\begin{matrix}s-6&amp;2&amp;5\\1&amp;s+1&amp;-1\\-8&amp;2&amp;s+7\end{matrix}\right|
+&amp;=(s-6)(s^2+8s+9)+2(1-s)+5(8s+10)\\
+&amp;=s^3+2s^2-s-2=(s+2)(s^2-1)\\
+&amp;=(s+2)(s+1)(s-1).
+\end{split}\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ G(s) &amp;= \frac{1}{\Delta(s)}\begin{pmatrix}1&amp;-2&amp;0\end{pmatrix}\begin{pmatrix}2s^2+s-3\\s-1\\ *\end{pmatrix} = \frac{2s^2-s-1}{(s+2)(s+1)(s-1)},\\
+      &amp;=\frac{2s+1}{(s+2)(s+1)}.
+\end{split}\]</div>
+<p>Now, suppose that the system has input <span class="math notranslate nohighlight">\(\displaystyle u=2e^{-3t}\)</span>, for which <span class="math notranslate nohighlight">\(\displaystyle\bar{u}=\frac{2}{s+3}\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \bar{y} &amp;= \frac{2s+1}{(s+1)(s+2)}\cdot\frac{2}{s+3} = \frac{4s+2}{(s+1)(s+2)(s+3)},\\
+         &amp;= -\frac{1}{s+1}+\frac{6}{s+2}-\frac{5}{s+3}.
+\end{split}\]</div>
+<p>Hence <span class="math notranslate nohighlight">\(\displaystyle y=-e^{-t}+6e^{-2t}-5e^{-2t}\)</span>.</p>
+<p>Now, while it is clear that a given system or state-space system matrix can
+give rise to only one corresponding transfer function matrix, the reverse is
+not true. A given transfer function matrix can be the result of several
+state-space matrices or systems, <em>i.e.</em> it has many possible realisations.</p>
+<br>
+<p><strong>Example 5.1.2</strong> The above transfer function can be realised by any
+of the following state-space system matrices</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \text{(i) } \begin{pmatrix} s-1&amp;0&amp;0&amp;|&amp;0\\0&amp;s+1&amp;0&amp;|&amp;1\\3&amp;0&amp;s+2&amp;|&amp;1\\-&amp;-&amp;-&amp;|&amp;-\\-4&amp;1&amp;-3&amp;|&amp;0\end{pmatrix}
+ &amp;\qquad \text{(ii) } \begin{pmatrix} s&amp;0&amp;-1&amp;|&amp;0\\-3&amp;s&amp;1&amp;|&amp;1\\2&amp;0&amp;s+3&amp;|&amp;1\\-&amp;-&amp;-&amp;|&amp;-\\-1&amp;0&amp;-2&amp;|&amp;0\end{pmatrix}\\
+ \text{(iii) } \begin{pmatrix} s+1&amp;0&amp;|&amp;1\\0&amp;s+2&amp;|&amp;1\\-&amp;-&amp;|&amp;-\\1&amp;-3&amp;|&amp;0\end{pmatrix} &amp;\qquad \text{(iv) }
+ \begin{pmatrix} s&amp;-1&amp;|&amp;0\\2&amp;s+3&amp;|&amp;1\\-&amp;-&amp;|&amp;-\\-1&amp;-2&amp;|&amp;0\end{pmatrix}.
+\end{split}\]</div>
+<p>Note that the system matrix in (iii) is the result of removing all reference to the
+<em>input-decoupling zero</em> <span class="math notranslate nohighlight">\(s=1\)</span> from that in (i), while that in (iv) is the
+result of similarly removing reference to the <em>output-decoupling zero</em>
+<span class="math notranslate nohighlight">\(s=0\)</span> from that in (ii). The system matrices in (iii) and (iv) may be thought of as giving more efficient realisations of the corresponding transfer function matrix since they are smaller than those in (i) and (ii). They do, in fact, provide <em>minimal realisations</em> of the transfer function involved.</p>
+<p>System and transfer function matrices can also arise from systems of difference
+equations. In this case the Laplace transform parameter <span class="math notranslate nohighlight">\(s\)</span> is replaced by the
+z-transform parameter <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<br>
+<p><strong>Example 5.1.3</strong> Taking z-transforms of the system of difference equations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \begin{pmatrix} x^{(1)}_{k+1}\\x^{(2)}_{k+1}\\x^{(3)}_{k+1}\end{pmatrix} = 
+ \begin{pmatrix}6&amp;-2&amp;-5\\-1&amp;-1&amp;1\\8&amp;-2&amp;-7\end{pmatrix}
+ \begin{pmatrix} x^{(1)}_k\\x^{(2)}_k\\x^{(3)}_k\end{pmatrix}+
+ \begin{pmatrix}2\\0\\3\end{pmatrix} u_k,
+\end{split}\]</div>
+<p>gives rise to the system matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ P(z) = \begin{pmatrix} z-6&amp;2&amp;5&amp;|&amp;2\\1&amp;z+1&amp;-1&amp;|&amp;0\\-8&amp;2&amp;z+7&amp;|&amp;3\\-&amp;-&amp;-&amp;|&amp;-\\-1&amp;2&amp;0&amp;|&amp;0\end{pmatrix},
+\end{split}\]</div>
+<p>and the transfer function</p>
+<div class="math notranslate nohighlight">
+\[
+ G(z) = \frac{2z+1}{(z+1)(z+2)}.
+\]</div>
+<p>Then, if the above system has input <span class="math notranslate nohighlight">\(\displaystyle u_k = 2\left(-3\right)^k\)</span>, for which
+<span class="math notranslate nohighlight">\(\displaystyle \bar{u}=\frac{2z}{z+3}\)</span>, the response of the system has z-transform</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \bar{y} &amp;= \frac{2z+1}{(z+1)(z+2)}\times\frac{2z}{z+3} = \frac{(4z+2)z}{(z+1)(z+2)(z+3)},\\
+         &amp;=\left(\frac{-1}{z+1}+\frac{6}{z+2}-\frac{5}{z+3}\right)z,
+\end{split}\]</div>
+<p><em>i.e.</em> <span class="math notranslate nohighlight">\(\displaystyle y_k = (-1)^k+6(-2)^k-5(-3)^k\)</span>.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content\notebooks\Chapter5"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Chapter5Intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 5 Frequency-Domain Control</p>
+        </div>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan J Crofts<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,812 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>2.1 Similarity Transformations and the Jordan Canonical Form &#8212; Linear Systems MATH30451</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfonts.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"HTML-CSS": {"matchFontHeight": true, "scale": 110}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="2.2 Jordon Normal Form" href="JNF.html" />
+    <link rel="prev" title="Chapter 2 Similarity Transformations and the Jordan Canonical Form" href="Chapter2Intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/math.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Linear Systems MATH30451</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Course Overview
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter1/Chapter1Intro.html">
+   Chapter 1 Introduction
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter1/Examples.html">
+     1.1 Real-world Examples of Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter1/DiffEqnRev.html">
+     1.2 Differential and Difference Equations Revision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter1/LaplaceTransformRev.html">
+     1.3 Laplace Transform Revision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter1/ZTransforms.html">
+     1.4
+     <span class="math notranslate nohighlight">
+      \(z\)
+     </span>
+     -Transforms and Difference Equations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Chapter2Intro.html">
+   Chapter 2 Similarity Transformations and the Jordan Canonical Form
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.1 Similarity Transformations and the Jordan Canonical Form
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JNF.html">
+     2.2 Jordon Normal Form
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JNF2by2.html">
+     2.3 JNF: The Case of the
+     <span class="math notranslate nohighlight">
+      \(2 \times 2\)
+     </span>
+     Matrix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="JNF3by3.html">
+     2.4 JNF: The Case of the
+     <span class="math notranslate nohighlight">
+      \(3 \times 3\)
+     </span>
+     Matrix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PowersJB.html">
+     2.5 Powers of a Jordon Block
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3/Chapter3Intro.html">
+   Chapter 3 Linear systems of first order differential and difference equations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/HomoODE.html">
+     3.1 Homogeneous Systems of ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/HomoDiff.html">
+     3.2 Homogeneous Systems of Difference Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/MarkovProcesses.html">
+     3.3 Markov Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/Leslie.html">
+     3.4 Leslie Population Growth Models (optional)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/NonHomoODE.html">
+     3.5 Inhomogeneous Systems of ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/NonHomoDiff.html">
+     3.6 Inhomogeneous Systems of Difference Equations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter4/Chapter4Intro.html">
+   Chapter 4 Controllability, observability and stability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter4/ControlObserve.html">
+     4.1 Controllability and Observability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter4/Stability.html">
+     4.2 Linear Stability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter4/BIBO.html">
+     4.3 BIBO Stability and Feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter5/Chapter5Intro.html">
+   Chapter 5 Frequency-Domain Control
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter5/SysAndTrans.html">
+     5.1 System and Transfer Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/content/notebooks/Chapter2/SimTrans.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/notebooks/Chapter2/SimTrans.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background-material">
+   Background Material
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>2.1 Similarity Transformations and the Jordan Canonical Form</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#background-material">
+   Background Material
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/jjcrofts77/Linear-Systems-MATH30451/blob/main/content/notebooks/Chapter2/SimTrans.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="similarity-transformations-and-the-jordan-canonical-form">
+<h1>2.1 Similarity Transformations and the Jordan Canonical Form<a class="headerlink" href="#similarity-transformations-and-the-jordan-canonical-form" title="Permalink to this headline">#</a></h1>
+<p>Recall that if <span class="math notranslate nohighlight">\(A\)</span> is a real symmetric matrix, and if we choose <span class="math notranslate nohighlight">\(P\)</span> to be the matrix whose columns are the orthonormal eigenvectors of <span class="math notranslate nohighlight">\(A\)</span>, then the matrix <span class="math notranslate nohighlight">\(D=P^{-1}AP\)</span> is diagonal, with non-zero elements given by the eigenvalues of <span class="math notranslate nohighlight">\(A\)</span>. However, if the matrix <span class="math notranslate nohighlight">\(A\)</span> is not symmetric then diagonalisation might not be possible. For such systems, a structure, which is close to diagonal form, known as the Jordan canonical form, can be obtained.</p>
+<p>An <span class="math notranslate nohighlight">\(n\times n\)</span> matrix is diagonalisable if and only if the sum of the dimensions of the eigenspaces is <span class="math notranslate nohighlight">\(n\)</span>. Or, equivalently, if and only if <span class="math notranslate nohighlight">\(A\)</span> has <span class="math notranslate nohighlight">\(n\)</span> linearly independent eigenvectors. As we saw in DEM (DETM) not all matrices are diagonalisable.</p>
+<br>
+<section id="background-material">
+<h2>Background Material<a class="headerlink" href="#background-material" title="Permalink to this headline">#</a></h2>
+<p>Before moving on let us review some key ideas from linear algebra.</p>
+<br>
+<p>Let <span class="math notranslate nohighlight">\(f\)</span> be a linear map from a vector space <span class="math notranslate nohighlight">\(V\)</span> to itself, and <span class="math notranslate nohighlight">\(A\)</span> the matrix representing <span class="math notranslate nohighlight">\(f\)</span> w.r.t the standard basis.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Hopefully most of this is familiar but if not don’t worry! We’ll cover it in the lectures in more detail.</p>
+</div>
+</aside>
+<ol class="simple">
+<li><p>Then the <em>characteristic polynomial</em> is <span class="math notranslate nohighlight">\(\displaystyle\chi_A(t) =
+\det{(A-tI)}\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lambda\)</span> is an <em>eigenvalue</em> of <span class="math notranslate nohighlight">\(A\)</span> if <span class="math notranslate nohighlight">\(\displaystyle\chi_A(\lambda)=0\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(v\)</span> is an <em>eigenvector</em> for the eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span> if
+<span class="math notranslate nohighlight">\(\displaystyle Av=\lambda v\)</span>.</p></li>
+<li><p>The <em>eigenspace</em> for the eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span> is
+<span class="math notranslate nohighlight">\(\displaystyle\ker{(A-\lambda I)}\)</span>.</p></li>
+</ol>
+<br>
+<p><strong>Example 2.1.1</strong>  The matrices</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ A_1 = \begin{pmatrix} 1~ &amp;0\\0~ &amp; 1\end{pmatrix} \quad\text{and}\quad A_2 = \begin{pmatrix} 1~ &amp;1\\0~ &amp; 1\end{pmatrix}
+\end{split}\]</div>
+<p>have the same characteristic polynomial given by</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_{A_1}(t) = \chi_{A_2}(t) = (t-1)^2
+\]</div>
+<p>which implies that <span class="math notranslate nohighlight">\(\displaystyle \lambda=1\)</span> has AM=2 in both cases.</p>
+<p>The corresponding eigenspaces are given by</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A_1:\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ (I-A_1)\mathbf{v} = \begin{pmatrix} 0~ &amp; 0\\0~&amp;0\end{pmatrix}\mathbf{v}=\mathbf{0}
+ \end{split}\]</div>
+<p>which <span class="math notranslate nohighlight">\(\implies\)</span> <span class="math notranslate nohighlight">\(v_1 = \alpha\)</span> and <span class="math notranslate nohighlight">\(v_2 = \beta\)</span>. Therefore</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \text{Eigenspace - }\quad \left\{ \alpha\begin{pmatrix} 1\\0\end{pmatrix}+\beta\begin{pmatrix} 0\\1\end{pmatrix} : \alpha, \beta\in\mathbb{R} \right\}
+ \end{split}\]</div>
+<p>and the GM=2. (<span class="math notranslate nohighlight">\(\therefore A_1\)</span> is diagonalisable (trivially).)</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A_2\)</span>:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ (I-A_2)\mathbf{v} = \begin{pmatrix} 0~ &amp; -1\\0~&amp;0\end{pmatrix}\mathbf{v}=\mathbf{0}
+ \end{split}\]</div>
+<p>which <span class="math notranslate nohighlight">\(\implies\)</span> <span class="math notranslate nohighlight">\(v_1 = \alpha\)</span> and <span class="math notranslate nohighlight">\(v_2 =0\)</span>. Therefore</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \text{Eigenspace - }\quad \left\{ \alpha\begin{pmatrix} 1\\0\end{pmatrix} : \alpha\in\mathbb{R} \right\}
+ \end{split}\]</div>
+<p>and the GM=1. (NOT diagonalisable.)</p>
+<br>
+<blockquote>
+<div><p><strong>Theorem 2.1.1 (Cayley-Hamilton)</strong> A matrix satisfies its own characteristic equation, i.e., <span class="math notranslate nohighlight">\(\displaystyle\chi_A(A)=0\)</span>.</p>
+</div></blockquote>
+<br>
+<p><strong>Example 2.1.2</strong> Let <span class="math notranslate nohighlight">\(\displaystyle A = \begin{pmatrix} 1~&amp;1\\2~&amp;1\end{pmatrix}\)</span> then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\chi_A(t) &amp;= \left| \begin{array}{cc}t-1&amp;1\\2&amp;t-1\end{array}\right|\\
+              &amp;= (t-1)^2-2\\
+              &amp;= t^2-2t-1
+\end{split}\]</div>
+<p>Now to check C-H we compute</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \chi_A(A) &amp;= \begin{pmatrix} 1~&amp;1\\2~&amp;1\end{pmatrix}^2-2\begin{pmatrix}1~&amp;1\\2~&amp;1\end{pmatrix}-\begin{pmatrix}1~&amp;0\\0~&amp;1\end{pmatrix}\\
+                 &amp;= \begin{pmatrix}3~&amp;2\\4~&amp;3\end{pmatrix}-\begin{pmatrix}2~&amp;2\\4~&amp;2\end{pmatrix}-\begin{pmatrix}1~&amp;0\\0~&amp;1\end{pmatrix}\\
+                 &amp;= \begin{pmatrix}0~&amp;0\\0~&amp;0\end{pmatrix}
+\end{split}\]</div>
+<p>as expected.</p>
+<p>It is sometimes useful to use C-H to compute matrix powers.</p>
+<br>
+<p><strong>Example 2.1.3</strong> For <span class="math notranslate nohighlight">\(\displaystyle A = \begin{pmatrix}1&amp;2\\3&amp;4\end{pmatrix}\)</span> we have that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\chi_A(t) = \left|\begin{array}{cc}1-t&amp;-2\\-3&amp;4-t\end{array}\right| = t^2-5t-2
+\end{split}\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight" id="equation-chpower">
+<span class="eqno">(13)<a class="headerlink" href="#equation-chpower" title="Permalink to this equation">#</a></span>\[
+A^2-5A-2I_2 = 0\implies A^2 = 5A+2I_2.
+\]</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We denote by <span class="math notranslate nohighlight">\(I_n\)</span> the <span class="math notranslate nohighlight">\(n\times n\)</span> identity matrix</p>
+</div>
+</aside>
+<p>Now using <a class="reference internal" href="#equation-chpower">(13)</a> we can work out any power, <span class="math notranslate nohighlight">\(\displaystyle A^k\)</span>, in terms of just <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(I_2\)</span>.</p>
+<p>So, for example,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ A^3 &amp;= (5A+2I_2)A = 5A^2+2A = 5(5A+2I_2)+2A = 27A+10I_2\\
+ A^4 &amp;= A^3A = (27A+10I_2)A = 27A^2+10A = \cdots = 145A+54I_2.
+\end{split}\]</div>
+<p><em>etc.</em></p>
+<p>We can also work out the inverse of <span class="math notranslate nohighlight">\(A\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+A^2=5A+2I_2\quad\implies\quad A^{-1} = \frac{A-5I_2}{2}.
+\]</div>
+<br>
+<p>We shall make good use of the Caley-Hamilton theorem throughout this course!</p>
+<br>
+<p>Another concept that will prove useful is that of the so-called minimal polynomial which we define below.</p>
+<br>
+<aside class="margin sidebar">
+<p class="sidebar-title">Monic polynomials</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\displaystyle 3t^2+t-1\)</span> is <em>not</em> monic</p></li>
+<li><p><span class="math notranslate nohighlight">\(\displaystyle t^2+t-2\)</span> <em>is</em> monic</p></li>
+</ul>
+</aside>
+<blockquote>
+<div><p><strong>Definition 2.1.2</strong> The <em>minimal polynomial</em>, <span class="math notranslate nohighlight">\(\displaystyle m_A(t)\)</span>, of <span class="math notranslate nohighlight">\(\displaystyle A\)</span> is the monic polynomial of least degree for which <span class="math notranslate nohighlight">\(\displaystyle m_A(A)=0\)</span>.</p>
+</div></blockquote>
+<br>
+<p>Note that <em>monic</em> means that the coefficient of the term with highest power in <span class="math notranslate nohighlight">\(\displaystyle m_A(t)\)</span> equals one.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The minimal polynomial of <span class="math notranslate nohighlight">\(A\)</span> is unique, and divides the characteristic polynomial.</p></li>
+<li><p>This means that all the factors of <span class="math notranslate nohighlight">\(\displaystyle m_A(t)\)</span> are also factors of <span class="math notranslate nohighlight">\(\displaystyle \chi_A(t)\)</span>.</p></li>
+<li><p>We can use this to determine <span class="math notranslate nohighlight">\(\displaystyle m_A(t)\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(P\)</span> is any invertible matrix, then <span class="math notranslate nohighlight">\(\displaystyle m_A(P^{-1}AP)=0\)</span>.</p></li>
+</ul>
+</div>
+<br>
+<blockquote>
+<div><p><strong>Theorem 2.1.3</strong> The minimal polynomial has the form</p>
+<div class="math notranslate nohighlight">
+\[m_A(t) = (t-\lambda_1)^{e_1}\cdots(t-\lambda_{n_k})^{e_k}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda_1,\ldots, \lambda_{n_k}\)</span> are the eigenvalues of the matrix <span class="math notranslate nohighlight">\(A\)</span>, and the numbers <span class="math notranslate nohighlight">\(e_i\)</span> are such that <span class="math notranslate nohighlight">\(1\leq e_i\leq r_i\)</span> with <span class="math notranslate nohighlight">\(r_i\)</span> the algebraic multiplicity of <span class="math notranslate nohighlight">\(\lambda_i\)</span>. Moreover, <span class="math notranslate nohighlight">\(A\)</span> is diagonalisable if and only if each <span class="math notranslate nohighlight">\(e_i=1\)</span>.</p>
+</div></blockquote>
+<br>
+<p><strong>Example 2.1.4</strong> Consider <span class="math notranslate nohighlight">\(\displaystyle \chi_{A_2}(t) = (t-1)^2\)</span> then from the above we know that <span class="math notranslate nohighlight">\(\displaystyle m_{A_2}(t)\)</span> is either</p>
+<div class="math notranslate nohighlight">
+\[
+ \text{(i) } (t-1)^2 \quad\text{or} \quad \text{(ii) } t-1.
+\]</div>
+<p>Let’s check</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ A_2 - I_2 = \begin{pmatrix} 1~&amp; 1\\0~&amp; 1\end{pmatrix} - \begin{pmatrix} 1~&amp; 0\\0~&amp; 1\end{pmatrix} = \begin{pmatrix} 0~&amp; 1\\0~&amp; 0\end{pmatrix}\neq 0
+\end{split}\]</div>
+<p>Therefore <span class="math notranslate nohighlight">\(\displaystyle m_{A_2}(t) = (t-1)^2\)</span>.</p>
+<br>
+<p><strong>Example 2.1.5</strong> Now suppose we have <span class="math notranslate nohighlight">\(\displaystyle A_3 = \begin{pmatrix} 1~&amp;1~&amp;0\\0~&amp;1~&amp;0\\0~&amp;0~&amp;1\end{pmatrix}.\)</span></p>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \chi_{A_3}(t) = \left|\begin{array}{ccc}t-1&amp;-1&amp;0\\0&amp;t-1&amp;0\\0&amp;0&amp;t-1\end{array}\right| = (t-1)^3\end{split}\]</div>
+<p>and so <span class="math notranslate nohighlight">\(m_{A_3}(t)\)</span> can be one of</p>
+<div class="math notranslate nohighlight">
+\[
+ \text{(i) } (t-1)^3, \quad \text{(ii) } (t-1)^2 \quad \text{or} \quad \text{(iii) }  t-1.
+\]</div>
+<p>First we check</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ (A_3-I_3)^2 = \begin{pmatrix} 0~&amp;1~&amp;0\\0~&amp;0~&amp;0\\0~&amp;0~&amp;0 \end{pmatrix}^2
+                 = \begin{pmatrix} 0~&amp;0~&amp;0\\0~&amp;0~&amp;0\\0~&amp;0~&amp;0 \end{pmatrix}.
+\end{split}\]</div>
+<p>Therefore <span class="math notranslate nohighlight">\(\displaystyle m_{A_3}(t) = (t-1)^2 = t^2-2t+1\)</span>.</p>
+<br>
+<p>Importantly, if the factor <span class="math notranslate nohighlight">\((t-\lambda_i)\)</span> appears in the minimal polynomial with multiplicity <span class="math notranslate nohighlight">\(e_i\)</span> (i.e., <span class="math notranslate nohighlight">\(\displaystyle m_A(t)=(t-\lambda_i)^{e_i}g(t)\)</span> for some polynomial <span class="math notranslate nohighlight">\(g(t)\)</span> which does not have <span class="math notranslate nohighlight">\((t-\lambda_i)\)</span> as a factor), then the <em>generalised eigenspace</em> is <span class="math notranslate nohighlight">\(\displaystyle\ker\left[(A-\lambda_i I)^{e_i}\right]\)</span>.</p>
+<br>
+<blockquote>
+<div><p><strong>Proposition 2.1.4</strong> Using the notation from Theorem 2.1.3</p>
+<div class="math notranslate nohighlight">
+\[
+\ker(A-\lambda_iI)\subset\ker\left[(A-\lambda_iI)^2\right]\subset\cdots \subset\ker\left[(A-\lambda_iI)^{e_i}\right].
+\]</div>
+</div></blockquote>
+<br>
+<blockquote>
+<div><p><strong>Theorem 2.1.5 (Primary Decomposition Theorem)</strong> Let <span class="math notranslate nohighlight">\(\displaystyle f:V\mapsto V\)</span> be linear and represented by the matrix <span class="math notranslate nohighlight">\(A\)</span> with minimal polynomial <span class="math notranslate nohighlight">\(\displaystyle m_A(t) = (t-\lambda_1)^{e_1}\ldots(t-\lambda_r)^{e_r}\)</span> where <span class="math notranslate nohighlight">\(\displaystyle \lambda_1,\ldots, \lambda_r\)</span> are distinct eigenvalues of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(\displaystyle e_1,\ldots,e_r\)</span> are natural numbers. Let <span class="math notranslate nohighlight">\(\displaystyle V_1,\ldots, V_r\)</span> denote the generalised eigenspace (<span class="math notranslate nohighlight">\(\displaystyle V_i=\ker\left[(A-\lambda_i)^{e_i}\right]\)</span>). Then <span class="math notranslate nohighlight">\(\displaystyle V = V_1\bigoplus V_2 \cdots\bigoplus V_r\)</span>.</p>
+</div></blockquote>
+<br>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The above theorem says that two (or more) eigenvectors with distinct eigenvalues are linearly independent (among other things).</p>
+</div>
+<br>
+<p><strong>Example 2.1.6</strong> Suppose <span class="math notranslate nohighlight">\(\displaystyle A = \begin{pmatrix}1&amp;1&amp;0\\0&amp;1&amp;0\\0&amp;0&amp;2\end{pmatrix}\)</span> then it is straightforward to show (<strong>exercise</strong>) that</p>
+<div class="math notranslate nohighlight">
+\[
+\chi_A(t) = m_A(t) = (t-1)^2(t-2).
+\]</div>
+<p>Let us compute the relevant eigenspaces.</p>
+<p><strong><span class="math notranslate nohighlight">\(\lambda_2=2:\)</span></strong> We need to solve</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+(A-2I_3)\mathbf{u} = \begin{pmatrix}-1&amp;1&amp;0\\0&amp;-1&amp;0\\0&amp;0&amp;0\end{pmatrix}\mathbf{u} = \mathbf{0}.
+\end{split}\]</div>
+<p>Clearly, <span class="math notranslate nohighlight">\(u_2 = u_1 = 0\)</span> and so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \mathrm{Ker}\left[(A-2I_3)\right] = \Bigg\{\alpha\begin{pmatrix}0\\0\\1\end{pmatrix}: \alpha\in\mathbb{R}\Bigg\}.
+\end{split}\]</div>
+<p><strong><span class="math notranslate nohighlight">\(\lambda_1=1:\)</span></strong> We need to solve</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+(A-I_3)\mathbf{u} = \begin{pmatrix}0&amp;1&amp;0\\0&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}\mathbf{u} = \mathbf{0}.
+\end{split}\]</div>
+<p>Clearly, <span class="math notranslate nohighlight">\(u_2 = u_3 = 0\)</span> and so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \mathrm{Ker}\left[(A-I_3)\right] = \Bigg\{\alpha\begin{pmatrix}1\\0\\0\end{pmatrix}: \alpha\in\mathbb{R}\Bigg\}.
+\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(\lambda_1=1\)</span> appears more than once in <span class="math notranslate nohighlight">\(m_A(t)\)</span> we need to also compute the generalised eigenspace by solving</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+(A-I_3)^2\mathbf{u} = \begin{pmatrix}0&amp;0&amp;0\\0&amp;0&amp;0\\0&amp;0&amp;1\end{pmatrix}\mathbf{u} = \mathbf{0}.
+\end{split}\]</div>
+<p>Clearly, <span class="math notranslate nohighlight">\(u_3 = 0\)</span> and so</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ \mathrm{Ker}\left[(A-I_3)^2\right] = \Bigg\{\alpha\begin{pmatrix}1\\0\\0\end{pmatrix}+\beta\begin{pmatrix}0\\1\\0\end{pmatrix}: \alpha, \beta \in\mathbb{R}\Bigg\}.
+\end{split}\]</div>
+<p>Using the notation of Theorem 2.1.5 we have that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ V_1 = \Bigg\{\alpha\begin{pmatrix}1\\0\\0\end{pmatrix}+\beta\begin{pmatrix}0\\1\\0\end{pmatrix}: \alpha, \beta \in\mathbb{R}\Bigg\}
+\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+V_2 = \Bigg\{\alpha\begin{pmatrix}0\\0\\1\end{pmatrix}: \alpha\in\mathbb{R}\Bigg\}.
+\end{split}\]</div>
+<br>
+<p>Geometrically, <span class="math notranslate nohighlight">\(V_1\)</span> is the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane whilst <span class="math notranslate nohighlight">\(V_2\)</span> is the <span class="math notranslate nohighlight">\(z\)</span>-axis. <span class="math notranslate nohighlight">\(V\)</span> is of course <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span> and it should be clear that any vector <span class="math notranslate nohighlight">\(\mathbf{v}\in V=\mathbf{R}^3\)</span> can be written as the direct sum:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{v} = \mathbf{v}_1+\mathbf{v}_2 \text{ where } \mathbf{v}_1\in V_1, \mathbf{v}_2\in V_2.
+\]</div>
+<p>Also, since <span class="math notranslate nohighlight">\(\displaystyle \mathrm{Ker}\left[A-I_3\right]\)</span> is given by the <span class="math notranslate nohighlight">\(x\)</span>-axis we see that <span class="math notranslate nohighlight">\(\displaystyle \ker[(A-I_3)]\subset\ker[(A-I_3)^2]\)</span> as expected.
+<br><br></p>
+<p>The results above will hopefully help to motivate some of the arguments that follow in the next few sections.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content\notebooks\Chapter2"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Chapter2Intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Chapter 2 Similarity Transformations and the Jordan Canonical Form</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="JNF.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">2.2 Jordon Normal Form</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan J Crofts<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

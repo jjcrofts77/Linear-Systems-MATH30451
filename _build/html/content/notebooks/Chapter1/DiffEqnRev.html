@@ -1,0 +1,1038 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>1.2 Differential and Difference Equations Revision &#8212; Linear Systems MATH30451</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/myfonts.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"HTML-CSS": {"matchFontHeight": true, "scale": 110}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="1.3 Laplace Transform Revision" href="LaplaceTransformRev.html" />
+    <link rel="prev" title="1.1 Real-world Examples of Linear Systems" href="Examples.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/math.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Linear Systems MATH30451</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../intro.html">
+                    Course Overview
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="Chapter1Intro.html">
+   Chapter 1 Introduction
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="Examples.html">
+     1.1 Real-world Examples of Linear Systems
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     1.2 Differential and Difference Equations Revision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="LaplaceTransformRev.html">
+     1.3 Laplace Transform Revision
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ZTransforms.html">
+     1.4
+     <span class="math notranslate nohighlight">
+      \(z\)
+     </span>
+     -Transforms and Difference Equations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter2/Chapter2Intro.html">
+   Chapter 2 Similarity Transformations and the Jordan Canonical Form
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter2/SimTrans.html">
+     2.1 Similarity Transformations and the Jordan Canonical Form
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter2/JNF.html">
+     2.2 Jordon Normal Form
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter2/JNF2by2.html">
+     2.3 JNF: The Case of the
+     <span class="math notranslate nohighlight">
+      \(2 \times 2\)
+     </span>
+     Matrix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter2/JNF3by3.html">
+     2.4 JNF: The Case of the
+     <span class="math notranslate nohighlight">
+      \(3 \times 3\)
+     </span>
+     Matrix
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter2/PowersJB.html">
+     2.5 Powers of a Jordon Block
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter3/Chapter3Intro.html">
+   Chapter 3 Linear systems of first order differential and difference equations
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/HomoODE.html">
+     3.1 Homogeneous Systems of ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/HomoDiff.html">
+     3.2 Homogeneous Systems of Difference Equations
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/MarkovProcesses.html">
+     3.3 Markov Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/Leslie.html">
+     3.4 Leslie Population Growth Models (optional)
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/NonHomoODE.html">
+     3.5 Inhomogeneous Systems of ODEs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter3/NonHomoDiff.html">
+     3.6 Inhomogeneous Systems of Difference Equations
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter4/Chapter4Intro.html">
+   Chapter 4 Controllability, observability and stability
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter4/ControlObserve.html">
+     4.1 Controllability and Observability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter4/Stability.html">
+     4.2 Linear Stability
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter4/BIBO.html">
+     4.3 BIBO Stability and Feedback
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Chapter5/Chapter5Intro.html">
+   Chapter 5 Frequency-Domain Control
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Chapter5/SysAndTrans.html">
+     5.1 System and Transfer Functions
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/content/notebooks/Chapter1/DiffEqnRev.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/notebooks/Chapter1/DiffEqnRev.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differential-equations">
+   Differential Equations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#separable-odes">
+     Separable ODEs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integrating-factor">
+     Integrating Factor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complementary-functions-for-second-order-odes">
+     Complementary Functions for Second-Order ODEs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#difference-equations">
+   Difference Equations
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>1.2 Differential and Difference Equations Revision</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#differential-equations">
+   Differential Equations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#separable-odes">
+     Separable ODEs
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integrating-factor">
+     Integrating Factor
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#complementary-functions-for-second-order-odes">
+     Complementary Functions for Second-Order ODEs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#difference-equations">
+   Difference Equations
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <p><a href="https://colab.research.google.com/github/jjcrofts77/Linear-Systems-MATH30451/blob/main/content/notebooks/Chapter1/DiffEqnRev.ipynb" target="_parent"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/></a></p>
+<section class="tex2jax_ignore mathjax_ignore" id="differential-and-difference-equations-revision">
+<h1>1.2 Differential and Difference Equations Revision<a class="headerlink" href="#differential-and-difference-equations-revision" title="Permalink to this headline">#</a></h1>
+<section id="differential-equations">
+<h2>Differential Equations<a class="headerlink" href="#differential-equations" title="Permalink to this headline">#</a></h2>
+<section id="separable-odes">
+<h3>Separable ODEs<a class="headerlink" href="#separable-odes" title="Permalink to this headline">#</a></h3>
+<p>We say that an ODE is separable if it can be written in the form</p>
+<div class="math notranslate nohighlight" id="equation-separable">
+<span class="eqno">(1)<a class="headerlink" href="#equation-separable" title="Permalink to this equation">#</a></span>\[
+\frac{\mathrm{d}x}{\mathrm{d}t} = \frac{f(t)}{g(x)}
+\]</div>
+<p>To solve such an equation we rearrange and integrate as follows</p>
+<div class="math notranslate nohighlight">
+\[
+ \int g(x)\mathrm{d}x = \int f(t)\mathrm{d}t.
+\]</div>
+<br>
+<p><strong>Example 1.2.1</strong> Solve <span class="math notranslate nohighlight">\(\displaystyle \frac{\mathrm{d}x}{\mathrm{d}t} = -2xt\)</span>.</p>
+<div class="toggle docutils container">
+<p>The right-hand side is clearly separable with <span class="math notranslate nohighlight">\(\displaystyle f(t)=-2t\)</span> and <span class="math notranslate nohighlight">\(\displaystyle g(x)=1/x\)</span> and so</p>
+<div class="math notranslate nohighlight">
+\[
+\int x^{-1}\mathrm{d}x = \int (-2t)\mathrm{d}t
+\]</div>
+<p>thus</p>
+<div class="math notranslate nohighlight">
+\[
+\log{x} = -t^2 + c
+\]</div>
+<p>giving</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = e^{-t^2+c} = ke^{-t^2}.
+\]</div>
+</div>
+<br>
+<p><strong>Example 1.2.2</strong> Solve <span class="math notranslate nohighlight">\(\displaystyle \frac{\mathrm{d}x}{\mathrm{d}t} = \frac{t}{x}\)</span>.</p>
+<div class="toggle docutils container">
+<p>Multiplying through by <span class="math notranslate nohighlight">\(x\mathrm{d}t\)</span> and integrating gives</p>
+<div class="math notranslate nohighlight">
+\[
+\int x\mathrm{d}x = \int t\mathrm{d}t.
+\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{1}{2}x^2 = \frac{1}{2}t^2 + \frac{c}{2}
+\]</div>
+<p>and so</p>
+<div class="math notranslate nohighlight">
+\[
+ x^2 = t^2 + c.
+\]</div>
+<p>Taking square roots we obtain the general solution</p>
+<div class="math notranslate nohighlight">
+\[
+x = \pm\sqrt{t^2 + c}.
+\]</div>
+<p>We show solutions for several values of <span class="math notranslate nohighlight">\(c\)</span> in the figure below</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../../_images/Example122.png"><img alt="../../../_images/Example122.png" src="../../../_images/Example122.png" style="height: 500px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Solutions for the ODE in Example 1.2.2</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<br>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the differential equation is of the form</p>
+<div class="math notranslate nohighlight" id="equation-sep2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-sep2" title="Permalink to this equation">#</a></span>\[
+\frac{\mathrm{d}x}{\mathrm{d}t} =f(x/t)
+\]</div>
+<p>then we can use a change of variables <span class="math notranslate nohighlight">\(x=vt\)</span> to rewrite <a class="reference internal" href="#equation-sep2">(2)</a> as</p>
+<div class="math notranslate nohighlight">
+\[
+v+t\frac{\mathrm{d}v}{\mathrm{d}t} = f(v),
+\]</div>
+<p>which is a separable equation (<em>i.e.</em> we can solve as in our earlier examples)</p>
+</div>
+<br>
+<p><strong>Example 1.2.3</strong> Solve <span class="math notranslate nohighlight">\(\displaystyle \frac{\mathrm{d}x}{\mathrm{d}t} = \frac{t+x}{t}\)</span>.</p>
+<div class="toggle docutils container">
+<p>The right-hand side can be written as <span class="math notranslate nohighlight">\(\displaystyle 1 + x/t\)</span> and hence is of the form  <span class="math notranslate nohighlight">\(\displaystyle f(x/t)\)</span>.</p>
+<p>Putting <span class="math notranslate nohighlight">\(x = vt\)</span> we get</p>
+<div class="math notranslate nohighlight">
+\[
+v+t\frac{\mathrm{d}v}{\mathrm{d}t} = 1+v
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+t\frac{\mathrm{d}v}{\mathrm{d}t} = 1.
+\]</div>
+<p>Multiplying through by <span class="math notranslate nohighlight">\(\displaystyle \mathrm{d}t/t\)</span> and integrating gives</p>
+<div class="math notranslate nohighlight">
+\[
+\int \mathrm{d}v = \int t^{-1}\mathrm{d}t
+\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[
+v = \log{t} + \log{k} = \log{kt}.
+\]</div>
+<p>Finally, putting <span class="math notranslate nohighlight">\(v=x/t\)</span>, we obtain</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = t\log{kt}.
+\]</div>
+</div>
+<br>
+</section>
+<section id="integrating-factor">
+<h3>Integrating Factor<a class="headerlink" href="#integrating-factor" title="Permalink to this headline">#</a></h3>
+<p>Given a first-order linear differential equation of the form</p>
+<div class="math notranslate nohighlight" id="equation-intfact">
+<span class="eqno">(3)<a class="headerlink" href="#equation-intfact" title="Permalink to this equation">#</a></span>\[
+x' + p(t)x = q(t)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(p\)</span> and <span class="math notranslate nohighlight">\(q\)</span> are functions of <span class="math notranslate nohighlight">\(t\)</span> only, we can use the so-called <em>integrating factor method</em> to solve.</p>
+<p>To do this we introduce an <em>integrating factor</em> as follows:</p>
+<div class="math notranslate nohighlight">
+\[
+f(t) = e^{\int p(t)\mathrm{d}t}.
+\]</div>
+<p>We then multiply <a class="reference internal" href="#equation-intfact">(3)</a> by the function <span class="math notranslate nohighlight">\(f(t)\)</span> to obtain</p>
+<div class="math notranslate nohighlight">
+\[
+x'e^{\int p(t)\mathrm{d}t} + p(t)e^{\int p(t)\mathrm{d}t}x = q(t)e^{\int p(t)\mathrm{d}t}.
+\]</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This trick is just the product rule in reverse!</p>
+</div>
+</aside>
+<p>The trick to solving is to notice that the left-hand side of the above equation can be rewritten as</p>
+<div class="math notranslate nohighlight">
+\[
+x'e^{\int p(t)\mathrm{d}t} + p(t)e^{\int p(t)\mathrm{d}t}x = \frac{\mathrm{d}}{\mathrm{d}t}\left(x e^{\int p(t)\mathrm{d}t}\right).
+\]</div>
+<p>Using this <a class="reference internal" href="#equation-intfact">(3)</a> becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}}{\mathrm{d}t}\left(x e^{\int p(t)\mathrm{d}t}\right) = q(t)e^{\int p(t)\mathrm{d}t},
+\]</div>
+<p>which can be integrated and solved to determine <span class="math notranslate nohighlight">\(x(t)\)</span>.</p>
+<p>Hopefully an example will clarify how the above process works in practice.</p>
+<br>
+<p><strong>Example 1.2.4</strong> Solve <span class="math notranslate nohighlight">\(\displaystyle x' = t + \frac{2x}{t}\)</span>.</p>
+<div class="toggle docutils container">
+<p>To start let us rearrange the equation into the standard form given in <a class="reference internal" href="#equation-intfact">(3)</a></p>
+<div class="math notranslate nohighlight">
+\[
+x' - \frac{2}{t}x = t
+\]</div>
+<p>so that <span class="math notranslate nohighlight">\(p(t)=-2/t\)</span> and <span class="math notranslate nohighlight">\(q(t)=t\)</span>.</p>
+<p>It follows that the integrating factor</p>
+<div class="math notranslate nohighlight">
+\[
+f(t) = e^{\int (-2/t)\mathrm{d}t} = e^{-2\log|t|} = e^{\log(t^{-2})} = t^{-2}.
+\]</div>
+<p>Multiplying by the integrating factor gives</p>
+<div class="math notranslate nohighlight">
+\[
+t^{-2}x' - \frac{1}{t^3}x = t^{-1}.
+\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[
+ \frac{\mathrm{d}}{\mathrm{d}t}\left(xt^{-2}\right) = t^{-1},
+\]</div>
+<p>which integrates to</p>
+<div class="math notranslate nohighlight">
+\[
+ xt^{-2} = \int t^{-1}\mathrm{d}t = \log|t| + \log|k| = \log|kt|
+\]</div>
+<p>giving</p>
+<div class="math notranslate nohighlight">
+\[
+ x(t) = t^2\log|kt|.
+\]</div>
+</div>
+<br>
+</section>
+<section id="complementary-functions-for-second-order-odes">
+<h3>Complementary Functions for Second-Order ODEs<a class="headerlink" href="#complementary-functions-for-second-order-odes" title="Permalink to this headline">#</a></h3>
+<p>We wish to solve equations of the form</p>
+<div class="math notranslate nohighlight" id="equation-compfun">
+<span class="eqno">(4)<a class="headerlink" href="#equation-compfun" title="Permalink to this equation">#</a></span>\[
+ x'' -px' + qx = 0,
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(p, q\in\mathbb{R}\)</span>.</p>
+<p>Experience suggests that solutions of the above are likely to be of the form <span class="math notranslate nohighlight">\(\displaystyle x(t) = e^{\lambda t}\)</span> and so we substitute this into <a class="reference internal" href="#equation-compfun">(4)</a> as a trial solution obtaining</p>
+<div class="math notranslate nohighlight" id="equation-aux">
+<span class="eqno">(5)<a class="headerlink" href="#equation-aux" title="Permalink to this equation">#</a></span>\[\begin{split}
+ \lambda^2e^{\lambda t} -p\lambda e^{\lambda t} + q\lambda^2e^{\lambda t} &amp;= e^{\lambda t}\left(\lambda^2-p\lambda+q\right) = 0\\
+ \implies \left(\lambda^2-p\lambda+q\right) = 0
+\end{split}\]</div>
+<p>Equation <a class="reference internal" href="#equation-aux">(5)</a> is called the <em>auxillary equation</em> of the ODE in <a class="reference internal" href="#equation-compfun">(4)</a>. It is a quadratic equation for <span class="math notranslate nohighlight">\(\lambda\)</span> and hence has two roots, <span class="math notranslate nohighlight">\(\lambda_1\)</span> and <span class="math notranslate nohighlight">\(\lambda_2\)</span>, say, so that if these are distinct, there are two possible solutions of <a class="reference internal" href="#equation-compfun">(4)</a>,</p>
+<div class="math notranslate nohighlight">
+\[
+ x_1(t) = e^{\lambda_1 t}\quad\text{and}\quad x_2(t) = e^{\lambda_2 t}.
+\]</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since the equation is linear we can combine solutions (linearly!) to determine the general solution</p>
+</div>
+</aside>
+<p>Thus a general solution of <a class="reference internal" href="#equation-compfun">(4)</a> is</p>
+<div class="math notranslate nohighlight">
+\[
+ x(t) = Ae^{\lambda_1 t} + Be^{\lambda_2 t}
+\]</div>
+<p>provided <span class="math notranslate nohighlight">\(\lambda_1\neq\lambda_2\)</span>.</p>
+<br>
+<p><strong>Example 1.2.5 (distinct roots)</strong> Solve <span class="math notranslate nohighlight">\(\displaystyle x''-3x'+2x=0\)</span>.</p>
+<div class="toggle docutils container">
+<p>Substituting <span class="math notranslate nohighlight">\(\displaystyle x=e^{\lambda t}\)</span> into our ODE gives the following auxillary equation</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^2-3\lambda+2=0,
+\]</div>
+<p>which has roots 1 and 2. The complementary function is therefore</p>
+<div class="math notranslate nohighlight">
+\[
+x(t) = Ae^t + Be^{2t}.
+\]</div>
+</div>
+<br>
+<p><strong>Example 1.2.6 (repeated roots)</strong> Solve <span class="math notranslate nohighlight">\(\displaystyle x''-4x'+4x = 0.\)</span></p>
+<div class="toggle docutils container">
+<p>The axillary equation is</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^2-4\lambda+4= (\lambda -2)^2 = 0.
+\]</div>
+<p>Thus we have obtained just one solution: <span class="math notranslate nohighlight">\(\displaystyle e^{2t}\)</span>.</p>
+<p>A second solution is provided by <span class="math notranslate nohighlight">\(\displaystyle x=te^{2t}\)</span> (the reason for this will be explained later on in the course). To check this is indeed a solution note that <span class="math notranslate nohighlight">\(\displaystyle x'=(1+2t)e^{2t}\)</span> and <span class="math notranslate nohighlight">\(\displaystyle x''=4(1+t)e^{2t}\)</span> so that</p>
+<div class="math notranslate nohighlight">
+\[
+(4(1+t)-4(1+2t)+4t)e^2t = 0.
+\]</div>
+<p>Thus <span class="math notranslate nohighlight">\(\displaystyle x=te^{2t}\)</span> solves our equation.</p>
+<p>Forming a linear combination of our two solutions provides the following general solution</p>
+<div class="math notranslate nohighlight">
+\[
+ x(t) = (A+Bt)e^{2t}.
+\]</div>
+</div>
+<br>
+<p><strong>Example 1.2.7 (complex roots)</strong> Solve <span class="math notranslate nohighlight">\(\displaystyle x''-6x'+25x=0\)</span>.</p>
+<div class="toggle docutils container">
+<p>The auxillary equation is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda^2-6\lambda+25=0
+\]</div>
+<p>whose roots are <span class="math notranslate nohighlight">\(\lambda_{1,2} = 3\pm 4i\)</span>. These are distinct so we can write</p>
+<div class="math notranslate nohighlight">
+\[
+ x(t) = Ae^{(3+4i)t} + Be^{(3-4i)t}.
+\]</div>
+<p>It appears that our solution is complex in this case; however, let us put</p>
+<div class="math notranslate nohighlight">
+\[
+ e^{(3\pm 4i)t} = e^{3t}e^{\pm 4it} = e^{3t}\left(\cos{4t}\pm i\sin{4t}\right)
+\]</div>
+<p>so that the solution becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x(t) &amp;= e^{3t}(A(\cos{4t}+i\sin{4t})+B(\cos{4t}-i\sin{4t}))\\
+     &amp;= e^{3t}(C\cos{4t}+D\sin{4t}),
+\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\displaystyle C=A+B\)</span> and <span class="math notranslate nohighlight">\(D=(A-B)i\)</span> are arbitrary constants.</p>
+<p>Clearly for real initial conditions the solutions are real for all <span class="math notranslate nohighlight">\(t\)</span>.</p>
+</div>
+<br>
+<p>Recall that we can use the same technique to solve an inhomogeneous ODE of the form</p>
+<div class="math notranslate nohighlight" id="equation-general">
+<span class="eqno">(6)<a class="headerlink" href="#equation-general" title="Permalink to this equation">#</a></span>\[
+x''-px'+qx = f(t);
+\]</div>
+<p>however, we must now find a particular solution, <span class="math notranslate nohighlight">\(x_p(t)\)</span>, to accompany our complementary solution, <span class="math notranslate nohighlight">\(x_c(t)\)</span>. This leads to a general solution of <a class="reference internal" href="#equation-general">(6)</a> of the form</p>
+<div class="math notranslate nohighlight">
+\[
+ x(t) = x_c(t) + x_p(t).
+\]</div>
+<br>
+<p><strong>Example 1.2.8 (inhomogeneous)</strong> Solve <span class="math notranslate nohighlight">\(\displaystyle x''+3x'-4x=6t\)</span>.</p>
+<div class="toggle docutils container">
+<p>We start by solving the homogeneous equation</p>
+<div class="math notranslate nohighlight">
+\[
+x_c''+3x_c-4x_c=0.
+\]</div>
+<p>The auxillary equation is <span class="math notranslate nohighlight">\(\displaystyle \lambda^2+3\lambda-4=0\)</span> which has roots 1 and -4 so that</p>
+<div class="math notranslate nohighlight">
+\[
+x_c(t) = Ae^t + Be^{-4t}.
+\]</div>
+<p>Since the right-hand side of our ODE is linear in <span class="math notranslate nohighlight">\(t\)</span> we try the particular solution <span class="math notranslate nohighlight">\(x_p = at+b\)</span>, which gives <span class="math notranslate nohighlight">\(x_p'=a\)</span> and <span class="math notranslate nohighlight">\(x_p''=0\)</span>. Putting these into our ODE, we find</p>
+<div class="math notranslate nohighlight">
+\[
+ 0+3a-4(at+b) = 6t.
+\]</div>
+<p>Since this equation must hold for all <span class="math notranslate nohighlight">\(t\)</span>, we have that</p>
+<div class="math notranslate nohighlight">
+\[
+3a-4b = 0 \quad \text{and} \quad -4a = 6,
+\]</div>
+<p>or <span class="math notranslate nohighlight">\(a=-\frac{3}{2}\)</span> and <span class="math notranslate nohighlight">\(b=-\frac{9}{8}\)</span> giving the following particular integral</p>
+<div class="math notranslate nohighlight">
+\[
+x_p(t) = -\frac{3}{2}t-\frac{9}{8}
+\]</div>
+<p>Finally we have that the general solution is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x(t) &amp;= x_c(t) + x_p(t)\\
+     &amp;= Ae^t + Be^{-4t}-\frac{3}{2}t-\frac{9}{8}.
+\end{split}\]</div>
+<p>As usual to find the arbitrary constants <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> requires additional information (<em>i.e.</em> initial or boundary data).</p>
+</div>
+<br>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>In general, when choosing the form of the particular solution, <span class="math notranslate nohighlight">\(x_p(t)\)</span>, we are guided by the function <span class="math notranslate nohighlight">\(f(t)\)</span> on the right-hand side of <a class="reference internal" href="#equation-general">(6)</a>; however, care must be taken if the right-hand side function, <span class="math notranslate nohighlight">\(f(t)\)</span>, is similar to the complementary function <span class="math notranslate nohighlight">\(x_c(t)\)</span>.</p>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<section id="difference-equations">
+<h2>Difference Equations<a class="headerlink" href="#difference-equations" title="Permalink to this headline">#</a></h2>
+<p>Here we recap how to solve a second order difference equation of the form</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Higher order (and lower!) equations can be solved similarly.</p>
+</div>
+</aside>
+<div class="math notranslate nohighlight">
+\[
+ x_{k+2} = ax_{k+1} + bx_k +f_k \quad\text{given that} \quad x_0 = c_1, x_1 = c_2.
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(f_k=0~ \forall k\)</span> then the equation is <em>homogeneous</em>, otherwise it is <em>inhomogeneous</em>.</p>
+<br>
+<p><strong>Example 1.2.9 (homogeneous)</strong> Solve <span class="math notranslate nohighlight">\(\displaystyle x_{k+2} = x_{k+1}+x_k\)</span> given that <span class="math notranslate nohighlight">\(x_0=1\)</span> and <span class="math notranslate nohighlight">\(x_1=1\)</span>.</p>
+<div class="toggle docutils container">
+<p>To start let us move all terms to the left-hand side:</p>
+<div class="math notranslate nohighlight">
+\[
+x_{k+2}-x_{k+1}-x_k = 0.
+\]</div>
+<p>We shall try a solution of the form <span class="math notranslate nohighlight">\(\displaystyle x_k = A\lambda^k\)</span> which upon substitution gives</p>
+<div class="math notranslate nohighlight">
+\[
+A\lambda^{k+2} - A\lambda^{k+1} - A\lambda^k = A\lambda^k(\lambda^2-\lambda-1) = 0.
+\]</div>
+<p>This is the <em>auxillary equation</em> associated with the difference equation.</p>
+<p>The roots are readily determined</p>
+<div class="math notranslate nohighlight">
+\[
+\lambda_1 = \frac{1+\sqrt{5}}{2}\quad\text{ and }\quad \lambda_2 = \frac{1-\sqrt{5}}{2}
+\]</div>
+<p>giving solutions</p>
+<div class="math notranslate nohighlight">
+\[
+x_k = A_1\left(\frac{1+\sqrt{5}}{2}\right)^k \quad \text{and} \quad x_k = A_2\left(\frac{1-\sqrt{5}}{2}\right)^k.
+\]</div>
+<p>Since the difference equation is linear we can form a general solution by taking a linear combination of our two solutions giving</p>
+<div class="math notranslate nohighlight">
+\[
+x_k = A\left(\frac{1+\sqrt{5}}{2}\right)^k + B\left(\frac{1-\sqrt{5}}{2}\right)^k.
+\]</div>
+<p>The final step is to work out values for the constants <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> using the initial conditions:</p>
+<div class="math notranslate nohighlight">
+\[
+x_0 = A+B = 1 \quad\text{and}\quad x_1 = A\left(\frac{1+\sqrt{5}}{2}\right)+B\left(\frac{1-\sqrt{5}}{2}\right)=1,
+\]</div>
+<p>which can be solved (<strong>exercise</strong>) to obtain</p>
+<div class="math notranslate nohighlight">
+\[A = \frac{1+\sqrt{5}}{2\sqrt{5}}\quad\text{and}\quad B = -\left(\frac{1-\sqrt{5}}{2\sqrt{5}}\right)
+\]</div>
+<p>giving the final solution</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x_k &amp;= \frac{1+\sqrt{5}}{2\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^k - \frac{1-\sqrt{5}}{2\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^k\\
+&amp;= \frac{1}{\sqrt{5}}\left[\left(\frac{1+\sqrt{5}}{2}\right)^{k+1} - \left(\frac{1-\sqrt{5}}{2}\right)^{k+1}\right].
+\end{split}\]</div>
+</div>
+<p><br><br></p>
+<p><strong>Example 1.2.10 (inhomogeneous)</strong> Solve <span class="math notranslate nohighlight">\(\displaystyle x_{k+2} -x_{k+1}-x_k = 1\)</span> given that <span class="math notranslate nohighlight">\(x_0=1\)</span> and <span class="math notranslate nohighlight">\(x_1=1\)</span>.</p>
+<div class="toggle docutils container">
+<p>This equation is solved in two steps. First we solve the homogeneous equation</p>
+<div class="math notranslate nohighlight">
+\[
+x_{k+2}-x_{k+1}-x_k = 0,
+\]</div>
+<p>which has solution</p>
+<div class="math notranslate nohighlight">
+\[
+x_k = A\left(\frac{1+\sqrt{5}}{2}\right)^k + B\left(\frac{1-\sqrt{5}}{2}\right)^k
+\]</div>
+<p>from the previous question.</p>
+<p>Then we solve for the particular solution with a trial function <span class="math notranslate nohighlight">\(g_k\)</span> guided by the right-hand side of the equation. Here, since the right-hand side is a constant, we attempt <span class="math notranslate nohighlight">\(g_k = a\)</span> so that</p>
+<div class="math notranslate nohighlight">
+\[
+a-a-a = 1 \implies a = -1.
+\]</div>
+<p>Hence the general solution is</p>
+<div class="math notranslate nohighlight" id="equation-inhomosol">
+<span class="eqno">(7)<a class="headerlink" href="#equation-inhomosol" title="Permalink to this equation">#</a></span>\[
+x_k = A\left(\frac{1+\sqrt{5}}{2}\right)^k + B\left(\frac{1-\sqrt{5}}{2}\right)^k - 1.
+\]</div>
+<p>Finally, we need to determine <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> using the initial data.</p>
+<p>Substituting our initial data into <a class="reference internal" href="#equation-inhomosol">(7)</a> gives</p>
+<div class="math notranslate nohighlight">
+\[
+A+B-1=1 \quad\text{and}\quad \frac{A}{2}(1+\sqrt{5})+\frac{B}{2}(1-\sqrt{5}) - 1 = 1.
+\]</div>
+<p>This is a pair of simultaneous equations that can be solved (<strong>exercise</strong>) to obtain</p>
+<div class="math notranslate nohighlight">
+\[
+A = \frac{1+\sqrt{5}}{\sqrt{5}} \quad\text{and}\quad B = -\left(\frac{1-\sqrt{5}}{\sqrt{5}}\right).
+\]</div>
+<p>Thus the general solution is given by</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x_k = \frac{1+\sqrt{5}}{\sqrt{5}}\left(\frac{1+\sqrt{5}}{2}\right)^k - \frac{1-\sqrt{5}}{\sqrt{5}}\left(\frac{1-\sqrt{5}}{2}\right)^k - 1. \\
+\end{split}\]</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content\notebooks\Chapter1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Examples.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">1.1 Real-world Examples of Linear Systems</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="LaplaceTransformRev.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">1.3 Laplace Transform Revision</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Jonathan J Crofts<br/>
+  
+      &copy; Copyright 2021.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,53 @@
+# Plot solution of Example 4.2.1
+
+# load packages for basic maths and plotting solutions
+import numpy as np # matlab-like commands 
+import matplotlib.pyplot as plt # plotting tools
+
+# initialise plots
+fig = plt.figure(figsize=[15,5])
+ax = plt.axes(projection='3d')
+
+# plot solution
+t = np.linspace(0,6*np.pi,1001)
+ax.plot3D(t,np.cos(t)+np.sin(t),-np.sin(t)+np.cos(t))
+
+# add on initial and final points
+ax.scatter(0,1,1)
+ax.scatter(t[-1],np.cos(t[-1])+np.sin(t[-1]),-np.sin(t[-1])+np.cos(t[-1]))
+
+# label plot
+ax.set_xlabel('$t$',size=14)
+ax.set_ylabel('$x_1$',size=14)
+ax.set_zlabel('$x_2$',size=14)
+ax.set_title('Trajectory $\mathbf{x}(t), t\in[0,6\pi]$ and $\mathbf{x}(0) = [1,1]^T$ from Example 4.2.2',size=18,weight='bold')
+
+# draw
+plt.show()
+
+# Plot solution of Example 4.2.2
+
+# load packages for basic maths and plotting solutions
+import numpy as np # matlab-like commands 
+import matplotlib.pyplot as plt # plotting tools
+
+# initialise plots
+fig = plt.figure(figsize=[15,5])
+ax = plt.axes(projection='3d')
+
+# plot solution
+t = np.linspace(0,6*np.pi,1001)
+ax.plot3D(t,np.exp(-t)*(np.cos(t)+np.sin(t)),np.exp(-t)*(-np.sin(t)+np.cos(t)))
+
+# add on initial and final points (t(end)=t[-1])
+ax.scatter(0,1,1)
+ax.scatter(t[-1],np.exp(-t[-1])*(np.cos(t[-1])+np.sin(t[-1])),np.exp(-t[-1])*(-np.sin(t[-1])+np.cos(t[-1])))
+
+# label plot
+ax.set_xlabel('$t$',size=14)
+ax.set_ylabel('$x_1$',size=14)
+ax.set_zlabel('$x_2$',size=14)
+ax.set_title('Trajectory $\mathbf{x}(t), t\in[0,6\pi]$ and $\mathbf{x}(0) = [1,1]^T$ from Example 4.2.2',size=18,weight='bold')
+
+# draw
+plt.show()
